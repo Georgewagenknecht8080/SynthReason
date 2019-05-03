@@ -12,7 +12,6 @@
    USA */
 var output = "";
 var outputprep = "";
-var lag = 0;
 
 function OnStart()
 {
@@ -30,11 +29,9 @@ function btn_OnTouch()
 {
 
 		var txt = app.ReadFile("/sdcard/philosophy.txt");
-		
-
 		var sentence = txt.split(".");
 		var fmax = 5;
-	while (0 == 0)
+for (var x = 0; x < 10; x++)
 	{
 	
 	
@@ -50,13 +47,11 @@ function btn_OnTouch()
 			var sentencestr = sentence[a];
 			var words = sentencestr.split(" ");
 			var b = Math.floor(Math.random() * (words.length - 1)) + 0;
-			if (words[b - 1] !== undefined && words[b] !== undefined && words[b + 1] !== undefined && words[b + 1].length > 5 ){
+			if (words[b - 1] !== undefined && words[b] !== undefined && words[b + 1] !== undefined && words[b + 1].length > 5  && noun.indexOf(words[b + 1]) > -1 ){
 				if (dic.indexOf(words[b - 1]) > -1 && dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1){
-					outputprep = words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";
+					outputprep = words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";			
 			
-			
-			
-					if (outputprep.indexOf("ideology") > -1 || outputprep.indexOf("knowledge") > -1 || outputprep.indexOf("debate") > -1 || outputprep.indexOf("language") > -1 ){
+					if (outputprep.indexOf("ideology") > -1 || outputprep.indexOf("knowledge") > -1 || outputprep.indexOf("debate") > -1 || outputprep.indexOf("language") > -1 || outputprep.indexOf("voting") > -1 ){
 					txt = app.ReadFile("/sdcard/politics.txt");
 					sentence = txt.split(".");
 					break;
@@ -64,6 +59,7 @@ function btn_OnTouch()
 					
 					if (outputprep.indexOf("religion") > -1 || outputprep.indexOf("spiritual") > -1 || outputprep.indexOf("believe") > -1 || outputprep.indexOf("belief") > -1 || outputprep.indexOf("spirit") > -1  || outputprep.indexOf("Spirit") > -1 ){
 					txt = app.ReadFile("/sdcard/zen.txt");
+					fmax = Math.floor(Math.random() * (8)) + 3;
 					sentence = txt.split(".");
 					break;
 					}
@@ -72,17 +68,14 @@ function btn_OnTouch()
 					txt = app.ReadFile("/sdcard/medicine.txt");
 					sentence = txt.split(".");
 					break;
-					}
+					}	
 			
-			
-			
-							if (outputprep.indexOf("ethics") > -1 || outputprep.indexOf("kill") > -1 || outputprep.indexOf("death") > -1 || outputprep.indexOf("attack") > -1){
+							if (outputprep.indexOf("destruction") > -1 || outputprep.indexOf("violence") > -1 || outputprep.indexOf("murder") > -1 || outputprep.indexOf("ethics") > -1 || outputprep.indexOf("kill") > -1 || outputprep.indexOf("death") > -1 || outputprep.indexOf("attack") > -1){
 					txt = app.ReadFile("/sdcard/ethics.txt");
 					sentence = txt.split(".");
 
 					break;
-					}
-			
+					}	
 		
 							if (outputprep.indexOf("science") > -1 || outputprep.indexOf("design") > -1 || outputprep.indexOf("think") > -1 || outputprep.indexOf("create") > -1 || outputprep.indexOf("model") > -1){
 					txt = app.ReadFile("/sdcard/science.txt");
@@ -120,7 +113,7 @@ function btn_OnTouch()
 					}
 					
 					
-							if (outputprep.indexOf("knowledge") > -1 || outputprep.indexOf("strategy") > -1 || outputprep.indexOf("maze") > -1 || outputprep.indexOf("system") > -1 || outputprep.indexOf("intelligence") > -1 || outputprep.indexOf("process") > -1){
+							if ( outputprep.indexOf("strategy") > -1 || outputprep.indexOf("maze") > -1 || outputprep.indexOf("system") > -1 || outputprep.indexOf("intelligence") > -1 || outputprep.indexOf("process") > -1){
 					txt = app.ReadFile("/sdcard/artificialintelligence.txt");
 					fmax = Math.floor(Math.random() * (10)) + 5;
 					sentence = txt.split(".");
