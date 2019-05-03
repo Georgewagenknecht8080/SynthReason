@@ -42,7 +42,7 @@ function btn_OnTouch()
 		//fmax = Math.floor(Math.random() * (7)) + 0;
 
 		var noun = app.ReadFile("/sdcard/noun.txt");
-		var dic = app.ReadFile("/sdcard/dictionary.txt");
+		var dic = app.ReadFile("/sdcard/words.txt");
 		var counter = 0;
 		while (counter < fmax)
 		{
