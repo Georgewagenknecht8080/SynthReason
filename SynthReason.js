@@ -31,7 +31,7 @@ function btn_OnTouch()
 	{
 		var txt = app.ReadFile("/sdcard/philosophy.txt");
 		var sentence = txt.split(".");
-		var fmax = 4;
+		var fmax = 2;
 		for (var x = 0; x < 10; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
@@ -43,10 +43,11 @@ function btn_OnTouch()
 				var sentencestr = sentence[a];
 				var words = sentencestr.split(" ");
 				var b = Math.floor(Math.random() * (words.length - 1)) + 0;
-				if (words[b - 1] !== undefined && words[b] !== undefined
+				if (words[b - 3] !== undefined && words[b -2] !== undefined
+					&& words[b - 1] !== undefined && words[b] !== undefined
 					&& words[b + 1] !== undefined && words[b + 1].length > 5)
 				{
-					if (dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
+					if (dic.indexOf(words[b - 3]) > -1 && dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
 						&& noun.indexOf(words[b]) > -1)
 					{
