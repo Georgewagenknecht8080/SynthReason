@@ -54,15 +54,6 @@ function btn_OnTouch()
 						var popup = 1;
 
 
-						if (outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1
-							|| outputprep.indexOf("health") > -1
-							|| outputprep.indexOf("sick") > -1)
-						{
-							txt = app.ReadFile("/sdcard/medicine.txt");
-							app.ShowPopup("medicine" );
-							sentence = txt.split(".");
-							break;
-						}
 
 						if (outputprep.indexOf("kill") > -1
 							|| outputprep.indexOf("death") > -1
