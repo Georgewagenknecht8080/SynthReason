@@ -16,7 +16,10 @@ var output = "";
 var outputprep = "";
 var outputprepweb = "";
 var x = 0;
-var quit = 0;
+var toast = 1;
+
+	var txt = app.ReadFile("/sdcard/helloworldwideweb.txt");
+	var sentence = txt.split(".");
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
@@ -32,11 +35,9 @@ function OnStart()
 function btn_OnTouch()
 {
 
-	var txt = app.ReadFile("/sdcard/philosophy.txt");
-	var sentence = txt.split(".");
-	var fmax = 4;
+	var fmax = 15;
 
-	for (x = 0; x < 3; x++)
+	for (x = 0; x < 15; x++)
 	{
 
 
@@ -60,90 +61,75 @@ function btn_OnTouch()
 				{
 					outputprep = words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";
 
-					if (outputprep.indexOf("ideology") > -1
-						|| outputprep.indexOf("knowledge") > -1
-						|| outputprep.indexOf("debate") > -1
-						|| outputprep.indexOf("language") > -1
-						|| outputprep.indexOf("voting") > -1)
-					{
-						txt = app.ReadFile("/sdcard/politics.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (20)) + 10;
-						break;
+
+						if (outputprep.indexOf("ideology") > -1 || outputprep.indexOf("knowledge") > -1 || outputprep.indexOf("debate") > -1 || outputprep.indexOf("language") > -1 || outputprep.indexOf("voting") > -1 ){
+					txt = app.ReadFile("/sdcard/politics.txt");
+					sentence = txt.split(".");
+									if (toast == 1){
+				app.ShowPopup("Politics");
+				}
+					break;
+					}
+					
+					
+							if (outputprep.indexOf("medicine") > -1 || outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1 || outputprep.indexOf("health") > -1 || outputprep.indexOf("sick") > -1){
+					txt = app.ReadFile("/sdcard/medicine.txt");
+					sentence = txt.split(".");
+								if (toast == 1){
+				app.ShowPopup("medicine");
+				}
+					break;
+					}	
+			
+							if (outputprep.indexOf("destruction") > -1 || outputprep.indexOf("violence") > -1 || outputprep.indexOf("murder") > -1 || outputprep.indexOf("ethics") > -1 || outputprep.indexOf("kill") > -1 || outputprep.indexOf("death") > -1 || outputprep.indexOf("attack") > -1){
+					txt = app.ReadFile("/sdcard/ethics.txt");
+					sentence = txt.split(".");
+								if (toast == 1){
+				app.ShowPopup("ethics");
+				}
+					break;
+					}	
+		
+	
+							if (outputprep.indexOf("philosophy") > -1 || outputprep.indexOf("thought") > -1 || outputprep.indexOf("reason") > -1 || outputprep.indexOf("idea") > -1 || outputprep.indexOf("theory") > -1  || outputprep.indexOf("living") > -1   || outputprep.indexOf("idea") > -1 ){
+					txt = app.ReadFile("/sdcard/philosophy.txt");
+					sentence = txt.split(".");
+		    			if (toast == 1){
+				app.ShowPopup("philosophy");
+				}
+					break;
+					}
+	
+	
+							if (outputprep.indexOf("business") > -1 || outputprep.indexOf("work") > -1 || outputprep.indexOf("money") > -1 || outputprep.indexOf("leader") > -1){
+					txt = app.ReadFile("/sdcard/business.txt");
+					sentence = txt.split(".");
+							if (toast == 1){
+				app.ShowPopup("business");
+				}
+					break;
+					}
+		
+							if (outputprep.indexOf("government") > -1 || outputprep.indexOf("society") > -1 || outputprep.indexOf("environment") > -1 || outputprep.indexOf("people") > -1 || outputprep.indexOf("life") > -1 || outputprep.indexOf("group") > -1 || outputprep.indexOf("society") > -1|| outputprep.indexOf("language ") > -1){
+					txt = app.ReadFile("/sdcard/helloworldwideweb.txt");
+					sentence = txt.split(".");
+				if (toast == 1){
+				app.ShowPopup("www");
+				}
+					break;
+					}
+					
+					
+							if ( outputprep.indexOf("Artificial Intelligence") > -1 || outputprep.indexOf("Artificial intelligence") > -1 || outputprep.indexOf("artificial intelligence") > -1 || outputprep.indexOf("strategy") > -1 || outputprep.indexOf("maze") > -1 || outputprep.indexOf("system") > -1 || outputprep.indexOf("intelligence") > -1 || outputprep.indexOf("process") > -1){
+					txt = app.ReadFile("/sdcard/artificialintelligence.txt");					
+					sentence = txt.split(".");
+							if (toast == 1){
+				app.ShowPopup("Artificial Intelligence");
+				}
+					break;
 					}
 
 
-					if (outputprep.indexOf("medicine") > -1
-						|| outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1
-						|| outputprep.indexOf("health") > -1 || outputprep.indexOf("sick") > -1)
-					{
-						txt = app.ReadFile("/sdcard/medicine.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (20)) + 10;
-						break;
-					}
-
-					if (outputprep.indexOf("destruction") > -1
-						|| outputprep.indexOf("violence") > -1
-						|| outputprep.indexOf("murder") > -1
-						|| outputprep.indexOf("ethics") > -1 || outputprep.indexOf("kill") > -1
-						|| outputprep.indexOf("death") > -1 || outputprep.indexOf("attack") > -1)
-					{
-						txt = app.ReadFile("/sdcard/ethics.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (5)) + 0;
-						break;
-					}
-
-
-
-
-					if (outputprep.indexOf("philosophy") > -1
-						|| outputprep.indexOf("thought") > -1
-						|| outputprep.indexOf("reason") > -1 || outputprep.indexOf("idea") > -1
-						|| outputprep.indexOf("theory") > -1
-						|| outputprep.indexOf("living") > -1 || outputprep.indexOf("idea") > -1)
-					{
-						txt = app.ReadFile("/sdcard/philosophy.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (30)) + 10;
-						break;
-					}
-
-
-					if (outputprep.indexOf("business") > -1 || outputprep.indexOf("work") > -1
-						|| outputprep.indexOf("money") > -1 || outputprep.indexOf("leader") > -1)
-					{
-						txt = app.ReadFile("/sdcard/business.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (15)) + 10;
-						break;
-					}
-
-					if (outputprep.indexOf("society") > -1
-						|| outputprep.indexOf("environment") > -1
-						|| outputprep.indexOf("people") > -1 || outputprep.indexOf("life") > -1
-						|| outputprep.indexOf("group") > -1
-						|| outputprep.indexOf("society") > -1
-						|| outputprep.indexOf("language ") > -1)
-					{
-						txt = app.ReadFile("/sdcard/envsoc.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (25)) + 10;
-						break;
-					}
-
-
-					if (outputprep.indexOf("strategy") > -1 || outputprep.indexOf("maze") > -1
-						|| outputprep.indexOf("system") > -1
-						|| outputprep.indexOf("intelligence") > -1
-						|| outputprep.indexOf("process") > -1)
-					{
-						txt = app.ReadFile("/sdcard/artificialintelligence.txt");
-						sentence = txt.split(".");
-						// fmax = Math.floor(Math.random() * (10)) + 5;
-						break;
-					}
 
 
 					if (output.indexOf(outputprep) == -1)
