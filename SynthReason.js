@@ -45,13 +45,13 @@ function btn_OnTouch()
 				var b = Math.floor(Math.random() * (words.length - 1)) + 0;
 				if (words[b - 3] !== undefined && words[b -2] !== undefined
 					&& words[b - 1] !== undefined && words[b] !== undefined
-					&& words[b + 1] !== undefined && words[b + 1].length > 5)
+					&& words[b + 1] !== undefined && words[b + 2] !== undefined && words[b + 2].length > 5)
 				{
 					if (dic.indexOf(words[b - 3]) > -1 && dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
-						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
+						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1&& dic.indexOf(words[b + 2]) > -1
 						&& noun.indexOf(words[b]) > -1)
 					{
-						outputprep = words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";
+						outputprep = words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " "+ words[b + 2] + " ";
 						var popup = 1;
 
 
