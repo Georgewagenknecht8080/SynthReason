@@ -31,7 +31,7 @@ function btn_OnTouch()
 	{
 		var txt = app.ReadFile("/sdcard/philosophy.txt");
 		var sentence = txt.split(".");
-		var fmax = 5;
+		var fmax = 4;
 		for (var x = 0; x < 10; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
@@ -50,36 +50,16 @@ function btn_OnTouch()
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
 						&& noun.indexOf(words[b]) > -1)
 					{
-						outputprep = words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";
+						outputprep = words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " ";
 						var popup = 1;
 
-						if (outputprep.indexOf("ideology") > -1
-							|| outputprep.indexOf("knowledge") > -1
-							|| outputprep.indexOf("debate") > -1
-							|| outputprep.indexOf("language") > -1)
-						{
-							txt = app.ReadFile("/sdcard/politics.txt");
-							sentence = txt.split(".");
-							break;
-						}
-
-						if (outputprep.indexOf("religion") > -1
-							|| outputprep.indexOf("spiritual") > -1
-							|| outputprep.indexOf("believe") > -1
-							|| outputprep.indexOf("belief") > -1
-							|| outputprep.indexOf("spirit") > -1
-							|| outputprep.indexOf("Spirit") > -1)
-						{
-							txt = app.ReadFile("/sdcard/zen.txt");
-							sentence = txt.split(".");
-							break;
-						}
 
 						if (outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1
 							|| outputprep.indexOf("health") > -1
 							|| outputprep.indexOf("sick") > -1)
 						{
 							txt = app.ReadFile("/sdcard/medicine.txt");
+							app.ShowPopup("medicine" );
 							sentence = txt.split(".");
 							break;
 						}
@@ -89,25 +69,7 @@ function btn_OnTouch()
 							|| outputprep.indexOf("attack") > -1)
 						{
 							txt = app.ReadFile("/sdcard/ethics.txt");
-							sentence = txt.split(".");
-							break;
-						}
-
-						if (outputprep.indexOf("design") > -1
-							|| outputprep.indexOf("think") > -1
-							|| outputprep.indexOf("create") > -1
-							|| outputprep.indexOf("model") > -1)
-						{
-							txt = app.ReadFile("/sdcard/science.txt");
-							sentence = txt.split(".");
-							break;
-						}
-
-						if (outputprep.indexOf("build") > -1
-							|| outputprep.indexOf("create") > -1
-							|| outputprep.indexOf("make") > -1)
-						{
-							txt = app.ReadFile("/sdcard/tech.txt");
+								app.ShowPopup("ethics" );
 							sentence = txt.split(".");
 							break;
 						}
@@ -119,15 +81,7 @@ function btn_OnTouch()
 							|| outputprep.indexOf("idea") > -1)
 						{
 							txt = app.ReadFile("/sdcard/philosophy.txt");
-							sentence = txt.split(".");
-							break;
-						}
-
-						if (outputprep.indexOf("work") > -1
-							|| outputprep.indexOf("money") > -1
-							|| outputprep.indexOf("leader") > -1)
-						{
-							txt = app.ReadFile("/sdcard/business.txt");
+								app.ShowPopup("philosophy" );
 							sentence = txt.split(".");
 							break;
 						}
@@ -138,6 +92,7 @@ function btn_OnTouch()
 							|| outputprep.indexOf("language ") > -1)
 						{
 							txt = app.ReadFile("/sdcard/envsoc.txt");
+								app.ShowPopup("envionment & society" );
 							sentence = txt.split(".");
 							fmax++;
 							break;
@@ -150,6 +105,7 @@ function btn_OnTouch()
 							|| outputprep.indexOf("process") > -1)
 						{
 							txt = app.ReadFile("/sdcard/artificialintelligence.txt");
+								app.ShowPopup("artificial intelligence" );
 							sentence = txt.split(".");
 							break;
 						}
