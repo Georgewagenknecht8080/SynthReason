@@ -27,9 +27,6 @@ function OnStart()
 
 function btn_OnTouch()
 {
-
-
-
 	while (0 == 0)
 	{
 		var txt = app.ReadFile("/sdcard/philosophy.txt");
@@ -37,11 +34,6 @@ function btn_OnTouch()
 		var fmax = 5;
 		for (var x = 0; x < 10; x++)
 		{
-
-
-
-			fmax = Math.floor(Math.random() * (7)) + 0;
-
 			var noun = app.ReadFile("/sdcard/noun.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
 			var counter = 0;
@@ -83,8 +75,7 @@ function btn_OnTouch()
 							break;
 						}
 
-						if (outputprep.indexOf("medicine") > -1
-							|| outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1
+						if (outputprep.indexOf("disease") > -1 || outputprep.indexOf("ill") > -1
 							|| outputprep.indexOf("health") > -1
 							|| outputprep.indexOf("sick") > -1)
 						{
@@ -93,7 +84,7 @@ function btn_OnTouch()
 							break;
 						}
 
-						if (outputprep.indexOf("ethics") > -1 || outputprep.indexOf("kill") > -1
+						if (outputprep.indexOf("kill") > -1
 							|| outputprep.indexOf("death") > -1
 							|| outputprep.indexOf("attack") > -1)
 						{
@@ -102,7 +93,7 @@ function btn_OnTouch()
 							break;
 						}
 
-						if (outputprep.indexOf("science") > -1 || outputprep.indexOf("design") > -1
+						if (outputprep.indexOf("design") > -1
 							|| outputprep.indexOf("think") > -1
 							|| outputprep.indexOf("create") > -1
 							|| outputprep.indexOf("model") > -1)
@@ -112,8 +103,7 @@ function btn_OnTouch()
 							break;
 						}
 
-						if (outputprep.indexOf("technology") > -1
-							|| outputprep.indexOf("build") > -1
+						if (outputprep.indexOf("build") > -1
 							|| outputprep.indexOf("create") > -1
 							|| outputprep.indexOf("make") > -1)
 						{
@@ -122,8 +112,7 @@ function btn_OnTouch()
 							break;
 						}
 
-						if (outputprep.indexOf("philosophy") > -1
-							|| outputprep.indexOf("thought") > -1
+						if (outputprep.indexOf("thought") > -1
 							|| outputprep.indexOf("reason") > -1
 							|| outputprep.indexOf("theory") > -1
 							|| outputprep.indexOf("living") > -1
@@ -131,29 +120,24 @@ function btn_OnTouch()
 						{
 							txt = app.ReadFile("/sdcard/philosophy.txt");
 							sentence = txt.split(".");
-							fmax = Math.floor(Math.random() * (20)) + 6;
 							break;
 						}
 
-						if (outputprep.indexOf("business") > -1 || outputprep.indexOf("work") > -1
+						if (outputprep.indexOf("work") > -1
 							|| outputprep.indexOf("money") > -1
 							|| outputprep.indexOf("leader") > -1)
 						{
 							txt = app.ReadFile("/sdcard/business.txt");
-							fmax = Math.floor(Math.random() * (30)) + 10;
 							sentence = txt.split(".");
 							break;
 						}
 
-						if (outputprep.indexOf("society") > -1
-							|| outputprep.indexOf("environment") > -1
-							|| outputprep.indexOf("people") > -1 || outputprep.indexOf("life") > -1
+						if (outputprep.indexOf("people") > -1 || outputprep.indexOf("life") > -1
 							|| outputprep.indexOf("group") > -1
 							|| outputprep.indexOf("society") > -1
 							|| outputprep.indexOf("language ") > -1)
 						{
 							txt = app.ReadFile("/sdcard/envsoc.txt");
-							fmax = Math.floor(Math.random() * (20)) + 5;
 							sentence = txt.split(".");
 							fmax++;
 							break;
@@ -166,7 +150,6 @@ function btn_OnTouch()
 							|| outputprep.indexOf("process") > -1)
 						{
 							txt = app.ReadFile("/sdcard/artificialintelligence.txt");
-							fmax = Math.floor(Math.random() * (10)) + 5;
 							sentence = txt.split(".");
 							break;
 						}
@@ -175,7 +158,6 @@ function btn_OnTouch()
 						{
 							output += outputprep;
 							edt.SetText(output);
-
 							counter++;
 							app.SetClipboardText(output);
 						}
@@ -183,15 +165,7 @@ function btn_OnTouch()
 				}
 			}
 			output += ".\n\n";
-			var now = new Date().getTime();
-			var newtime = new Date().getTime() + 100;
-			while (now < newtime)
-			{
-			now = new Date().getTime()}
-			// Resources generation
-			app.WriteFile("/sdcard/helloworld.txt", output);
 			edt.SetText(output);
 		}
 	}
 }
-
