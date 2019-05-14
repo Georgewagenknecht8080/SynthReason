@@ -43,15 +43,15 @@ function btn_OnTouch()
 				var sentencestr = sentence[a];
 				var words = sentencestr.split(" ");
 				var b = Math.floor(Math.random() * (words.length - 1)) + 0;
-				if (words[b - 3] !== undefined && words[b -2] !== undefined
+				if (words[b - 4] !== undefined && words[b - 3] !== undefined && words[b -2] !== undefined
 					&& words[b - 1] !== undefined && words[b] !== undefined
 					&& words[b + 1] !== undefined && words[b + 2] !== undefined && words[b + 2].length > 5)
 				{
-					if (dic.indexOf(words[b - 3]) > -1 && dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
+					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1 && dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1&& dic.indexOf(words[b + 2]) > -1
 						&& noun.indexOf(words[b]) > -1)
 					{
-						outputprep = words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " "+ words[b + 2] + " ";
+						outputprep = words[b - 4] + " " +  words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " "+ words[b + 2] + " ";
 						var popup = 1;
 
 
@@ -66,6 +66,7 @@ function btn_OnTouch()
 							break;
 						}
 
+						
 						if (outputprep.indexOf("thought") > -1
 							|| outputprep.indexOf("reason") > -1
 							|| outputprep.indexOf("theory") > -1
@@ -91,13 +92,20 @@ function btn_OnTouch()
 						}
 
 						if (outputprep.indexOf("knowledge") > -1
-							|| outputprep.indexOf("strategy") > -1
-							|| outputprep.indexOf("maze") > -1 || outputprep.indexOf("system") > -1
+							|| outputprep.indexOf("system") > -1
 							|| outputprep.indexOf("intelligence") > -1
 							|| outputprep.indexOf("process") > -1)
 						{
 							txt = app.ReadFile("/sdcard/artificialintelligence.txt");
 								app.ShowPopup("artificial intelligence" );
+							sentence = txt.split(".");
+							break;
+						}
+						
+									if (outputprep.indexOf("and") > -1)
+						{
+							txt = app.ReadFile("/sdcard/cybernetics.txt");
+								app.ShowPopup("cybernetics" );
 							sentence = txt.split(".");
 							break;
 						}
