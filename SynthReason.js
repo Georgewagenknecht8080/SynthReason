@@ -27,9 +27,14 @@ function OnStart()
 
 function btn_OnTouch()
 {
+
+		var txt = app.ReadFile("/sdcard/philosophy.txt");
+		var sentencea = txt.split(".");
+	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
+	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
-		var txt = app.ReadFile("/sdcard/security.txt");
+		var txt = app.ReadFile("/sdcard/philosophy.txt");
 		var sentence = txt.split(".");
 		var fmax = 6;
 		for (var x = 0; x < 10; x++)
@@ -61,14 +66,27 @@ function btn_OnTouch()
 							
 							
 							
-				var array1 = outputprep;
-					var array = array1.split(" ");
+					var array1 = "people,life,group,society,language";
+					var array = array1.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+									txt = app.ReadFile("/sdcard/artificialintelligence.txt");
+							sentencea = txt.split(".");
+						
+							}
+						}
+						
+						
+				var array1 = "hack,kill,destroy,virus,infect";
+					var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/ethics.txt");
-								sentence = txt.split(".");
+								sentencea = txt.split(".");
 								if (outputprep.indexOf(array[traverse]) > -1)
 								{
 										break;
@@ -76,11 +94,32 @@ function btn_OnTouch()
 								}
 							}
 						}
+						
+						
+						
+						
+						var array1 = outputprep;
+						var array = array1.split(" ");
+			while (0==0)
+			{
+					
+							var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
+							var sentencestra = sentencea[aa];
+							var wordsa = sentencestra.split(" ");
+							var bb = Math.floor(Math.random() * (wordsa.length - 1)) + 0;
+							if (wordsa[bb + 3] !== undefined && wordsa[bb + 4] !== undefined && wordsa[bb + 5] !== undefined)
+							{
+								if (dic.indexOf(wordsa[bb + 3]) > -1 && dic.indexOf(wordsa[bb + 4]) > -1 && dic.indexOf(wordsa[bb + 5]) > -1)
+								{
+									outputprep2 =  wordsa[bb + 3] + " " + wordsa[bb + 4] + " " + wordsa[bb + 5] + " "
+									break;
+								}
+							}
+						}
 						if (output.indexOf(outputprep) == -1)
 						{
-							output += outputprep;
-							edt.SetText(output);
-							counter++;
+							output += outputprep + outputprep2;
+							edt.SetText(output);					
 						}
 					}
 				}
