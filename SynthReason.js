@@ -29,7 +29,7 @@ function btn_OnTouch()
 {
 	while (0 == 0)
 	{
-		var txt = app.ReadFile("/sdcard/work.txt");
+		var txt = app.ReadFile("/sdcard/security.txt");
 		var sentence = txt.split(".");
 		var fmax = 6;
 		for (var x = 0; x < 10; x++)
@@ -58,140 +58,35 @@ function btn_OnTouch()
 							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b +
 																							 2] +
 							" ";
-						var popup = 1;
-
-
-						if (stage > 10)
+							
+							
+							
+				var array1 = outputprep;
+					var array = array1.split(" ");
+						for (var traverse = 0; traverse < array.length; traverse++)
 						{
-
-							if (outputprep.indexOf("thought") > -1
-								|| outputprep.indexOf("reason") > -1
-								|| outputprep.indexOf("theory") > -1
-								|| outputprep.indexOf("living") > -1
-								|| outputprep.indexOf("idea") > -1)
-							{
-								txt = app.ReadFile("/sdcard/philosophy.txt");
-								app.ShowPopup("philosophy");
-								sentence = txt.split(".");
-								stage++;
-								break;
-							}
-						}
-
-						if (stage > 20)
-						{
-							if (outputprep.indexOf("people") > -1
-								|| outputprep.indexOf("life") > -1
-								|| outputprep.indexOf("group") > -1
-								|| outputprep.indexOf("society") > -1
-								|| outputprep.indexOf("language ") > -1)
-							{
-								txt = app.ReadFile("/sdcard/envsoc.txt");
-								app.ShowPopup("envionment & society");
-								sentence = txt.split(".");
-								stage++;
-								break;
-							}
-						}
-
-
-						if (stage > 30)
-						{
-							if (outputprep.indexOf("virus") > -1
-								|| outputprep.indexOf("hack") > -1
-								|| outputprep.indexOf("death") > -1
-								|| outputprep.indexOf("kill") > -1
-								|| outputprep.indexOf("infected") > -1
-								|| outputprep.indexOf("demolish") > -1
-								|| outputprep.indexOf("backdoor") > -1
-								|| outputprep.indexOf("death") > -1
-								|| outputprep.indexOf("attack") > -1)
+							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/ethics.txt");
-								app.ShowPopup("ethics");
 								sentence = txt.split(".");
-								stage++;
-								break;
+								if (outputprep.indexOf(array[traverse]) > -1)
+								{
+										break;
+									
+								}
 							}
 						}
-
-
-
-
-						if (stage > 40)
-						{
-							if (outputprep.indexOf("thought") > -1
-								|| outputprep.indexOf("consciousness") > -1
-								|| outputprep.indexOf("idea") > -1
-								|| outputprep.indexOf("living") > -1
-								|| outputprep.indexOf("reason") > -1
-								|| outputprep.indexOf("knowledge") > -1
-								|| outputprep.indexOf("system") > -1
-								|| outputprep.indexOf("intelligence") > -1
-								|| outputprep.indexOf("process") > -1)
-							{
-								txt = app.ReadFile("/sdcard/security.txt");
-								app.ShowPopup("security");
-								sentence = txt.split(".");
-								stage++;
-								break;
-							}
-						}
-
-
-
-
-						if (stage > 50)
-						{
-
-							if (outputprep.indexOf("intelligence") > -1
-								|| outputprep.indexOf("order") > -1)
-							{
-								txt = app.ReadFile("/sdcard/cybernetics.txt");
-								app.ShowPopup("cybernetics");
-								sentence = txt.split(".");
-								stage++;
-								break;
-							}
-
-						}
-
-
-
-						if (stage > 60)
-						{
-
-							if (outputprep.indexOf("knowledge") > -1
-								|| outputprep.indexOf("system") > -1
-								|| outputprep.indexOf("process") > -1)
-							{
-								txt = app.ReadFile("/sdcard/artificialintelligence.txt");
-								app.ShowPopup("artificial intelligence");
-								sentence = txt.split(".");
-								stage++;
-								break;
-							}
-						}
-
-
-
-
-
-						stage++;
-app.ShowPopup(stage);
 						if (output.indexOf(outputprep) == -1)
 						{
 							output += outputprep;
 							edt.SetText(output);
 							counter++;
-						
 						}
 					}
 				}
 			}
 			output += ".\n\n";
-			
-				app.WriteFile( "/sdcard/outputlog.txt", output);
+			app.WriteFile("/sdcard/outputlog.txt", output);
 			edt.SetText(output);
 		}
 	}
