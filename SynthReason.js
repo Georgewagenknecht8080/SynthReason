@@ -28,18 +28,20 @@ function OnStart()
 function btn_OnTouch()
 {
 
-	var txt = app.ReadFile("/sdcard/philosophy.txt");
+		var txt = app.ReadFile("/sdcard/security.txt");
 	var sentencea = txt.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
-		var txt = app.ReadFile("/sdcard/philosophy.txt");
+		var txt = app.ReadFile("/sdcard/security.txt");
 		var sentence = txt.split(".");
-		var fmax = 6;
+		var fmax = 3;
 		for (var x = 0; x < 10; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
+				var adv = app.ReadFile("/sdcard/adv.txt");
+			var adj = app.ReadFile("/sdcard/adj.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
 			var counter = 0;
 			while (counter < fmax)
@@ -58,36 +60,11 @@ function btn_OnTouch()
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
 						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b]) > -1)
 					{
-						outputprep = words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b + 2] + " ";
-						var array1 = "people,life,group,society,language";
-						var array = array1.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt = app.ReadFile("/sdcard/envsoc.txt");
-								sentencea = txt.split(".");
-
-							}
-						}
-
-
-						var array1 = "hack,kill,destroy,virus,infect";
-						var array = array1.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt = app.ReadFile("/sdcard/ethics.txt");
-								sentencea = txt.split(".");
-								if (outputprep.indexOf(array[traverse]) > -1)
-								{
-									break;
-
-								}
-							}
-						}
-
+						outputprep =
+							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
+							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b +
+																							 2] +
+							" ";
 
 
 
@@ -99,30 +76,82 @@ function btn_OnTouch()
 							var sentencestra = sentencea[aa];
 							var wordsa = sentencestra.split(" ");
 							var bb = Math.floor(Math.random() * (wordsa.length - 1)) + 0;
-							if (wordsa[bb + 3] !== undefined && wordsa[bb + 4] !== undefined
-								&& wordsa[bb + 5] !== undefined)
+							if (wordsa[bb - 3] !== undefined && wordsa[bb - 2] !== undefined
+								&& wordsa[bb -1] !== undefined & wordsa[bb] !== undefined && wordsa[bb + 1] !== undefined
+								&& wordsa[bb + 2] !== undefined)
 							{
-								if (dic.indexOf(wordsa[bb + 3]) > -1
-									&& dic.indexOf(wordsa[bb + 4]) > -1
-									&& dic.indexOf(wordsa[bb + 5]) > -1)
-								{
-									outputprep2 = wordsa[bb + 3] + " " + wordsa[bb + 4] + " " + wordsa[bb + 5] + " ";
-										 break;
+								if (dic.indexOf(wordsa[bb-3]) > -1
+									&& dic.indexOf(wordsa[bb -2]) > -1
+									&& dic.indexOf(wordsa[bb -1]) > -1
+									&&dic.indexOf(wordsa[bb]) > -1
+									&& dic.indexOf(wordsa[bb + 1]) > -1
+									&& dic.indexOf(wordsa[bb + 2]) > -1
+									&& outputprep.indexOf(wordsa[bb]) > -1 && adj.indexOf(wordsa[bb]) > -1)
+									
+										{
+									outputprep2 =	wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -1] +	" " + wordsa[bb] + " " + wordsa[bb + 1] + " " + wordsa[bb + 2] +	" ";
+									break;
 								}
 							}
 						}
+
+
+		var array1 = "system,intelligence,process,situation,";
+							var array = array1.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+								txt = app.ReadFile("/sdcard/cybernetics.txt");
+						txt += app.ReadFile("/sdcard/artificialintelligence.txt");
+								sentencea = txt.split(".");		
+									break;
+							}
+						}
+
+
+
+		var array1 = "thought,consciousness,idea,living,reason,knowledge";
+							var array = array1.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+								txt = app.ReadFile("/sdcard/security.txt");
+								sentencea = txt.split(".");		
+									break;
+							}
+						}
+
+
+						var array1 = "hack,attack,evil,kill,destroy,virus,infect";
+						var array = array1.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+								txt = app.ReadFile("/sdcard/ethics.txt");
+								sentencea = txt.split(".");
+				break;
+							}
+						}
+
+
+
+
 						if (output.indexOf(outputprep) == -1)
 						{
+							counter++;
 							output += outputprep + outputprep2;
 							edt.SetText(output);
 						}
 					}
 				}
 			}
+		
 			output += ".\n\n";
 			app.WriteFile("/sdcard/outputlog.txt", output);
 			edt.SetText(output);
 		}
 	}
 }
-
