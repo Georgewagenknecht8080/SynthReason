@@ -28,7 +28,7 @@ function OnStart()
 function btn_OnTouch()
 {
 
-		var txt = app.ReadFile("/sdcard/security.txt");
+	var txt = app.ReadFile("/sdcard/security.txt");
 	var sentencea = txt.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
@@ -40,7 +40,7 @@ function btn_OnTouch()
 		for (var x = 0; x < 10; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
-				var adv = app.ReadFile("/sdcard/adv.txt");
+			var adv = app.ReadFile("/sdcard/adv.txt");
 			var adj = app.ReadFile("/sdcard/adj.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
 			var counter = 0;
@@ -67,7 +67,6 @@ function btn_OnTouch()
 							" ";
 
 
-
 						var array1 = outputprep;
 						var array = array1.split(" ");
 						while (0 == 0)
@@ -77,49 +76,57 @@ function btn_OnTouch()
 							var wordsa = sentencestra.split(" ");
 							var bb = Math.floor(Math.random() * (wordsa.length - 1)) + 0;
 							if (wordsa[bb - 3] !== undefined && wordsa[bb - 2] !== undefined
-								&& wordsa[bb -1] !== undefined & wordsa[bb] !== undefined && wordsa[bb + 1] !== undefined
-								&& wordsa[bb + 2] !== undefined)
+								&& wordsa[bb - 1] !== undefined & wordsa[bb] !== undefined
+								&& wordsa[bb + 1] !== undefined && wordsa[bb + 2] !== undefined)
 							{
-								if (dic.indexOf(wordsa[bb-3]) > -1
-									&& dic.indexOf(wordsa[bb -2]) > -1
-									&& dic.indexOf(wordsa[bb -1]) > -1
-									&&dic.indexOf(wordsa[bb]) > -1
+								if (dic.indexOf(wordsa[bb - 3]) > -1
+									&& dic.indexOf(wordsa[bb - 2]) > -1
+									&& dic.indexOf(wordsa[bb - 1]) > -1
+									&& dic.indexOf(wordsa[bb]) > -1
 									&& dic.indexOf(wordsa[bb + 1]) > -1
 									&& dic.indexOf(wordsa[bb + 2]) > -1
-									&& outputprep.indexOf(wordsa[bb]) > -1 && adj.indexOf(wordsa[bb]) > -1)
-									
-										{
-									outputprep2 =	wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -1] +	" " + wordsa[bb] + " " + wordsa[bb + 1] + " " + wordsa[bb + 2] +	" ";
+									&& outputprep.indexOf(wordsa[bb]) > -1
+									&& adj.indexOf(wordsa[bb]) > -1)
+
+								{
+									outputprep2 =
+										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
+																							 1] +
+										" " + wordsa[bb] + " " + wordsa[bb + 1] + " " + wordsa[bb +
+																							   2] +
+										" ";
 									break;
 								}
 							}
 						}
 
 
-		var array1 = "system,intelligence,process,situation,";
-							var array = array1.split(",");
+						var array1 = "system,intelligence,process,situation,";
+						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/cybernetics.txt");
-						txt += app.ReadFile("/sdcard/artificialintelligence.txt");
-								sentencea = txt.split(".");		
-									break;
+								txt += app.ReadFile("/sdcard/artificialintelligence.txt");
+								app.ShowPopup( "cyb int" );
+								sentencea = txt.split(".");
+								break;
 							}
 						}
 
 
 
-		var array1 = "thought,consciousness,idea,living,reason,knowledge";
-							var array = array1.split(",");
+						var array1 = "thought,consciousness,idea,living,reason,knowledge";
+						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/security.txt");
-								sentencea = txt.split(".");		
-									break;
+									app.ShowPopup( "sec" );
+								sentencea = txt.split(".");
+								break;
 							}
 						}
 
@@ -131,8 +138,9 @@ function btn_OnTouch()
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/ethics.txt");
+									app.ShowPopup( "ethics" );
 								sentencea = txt.split(".");
-				break;
+								break;
 							}
 						}
 
@@ -145,13 +153,19 @@ function btn_OnTouch()
 							output += outputprep + outputprep2;
 							edt.SetText(output);
 						}
+
+						output += ".\n\n";
+						app.WriteFile("/sdcard/outputlog.txt", output);
+						edt.SetText(output);
+
+
 					}
 				}
 			}
-		
-			output += ".\n\n";
-			app.WriteFile("/sdcard/outputlog.txt", output);
-			edt.SetText(output);
 		}
 	}
+
+
+
+
 }
