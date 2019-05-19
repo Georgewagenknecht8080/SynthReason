@@ -28,13 +28,13 @@ function OnStart()
 function btn_OnTouch()
 {
 
-	var txt = app.ReadFile("/sdcard/security.txt");
+	var txt = app.ReadFile("/sdcard/philosophy.txt");
 	var sentencea = txt.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
-		var txt = app.ReadFile("/sdcard/security.txt");
+		var txt = app.ReadFile("/sdcard/philosophy.txt");
 		var sentence = txt.split(".");
 		var fmax = 3;
 		for (var x = 0; x < 10; x++)
@@ -58,7 +58,7 @@ function btn_OnTouch()
 					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
 						&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
-						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b]) > -1)
+						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b+2]) > -1)
 					{
 						outputprep =
 							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
@@ -86,15 +86,13 @@ function btn_OnTouch()
 									&& dic.indexOf(wordsa[bb + 1]) > -1
 									&& dic.indexOf(wordsa[bb + 2]) > -1
 									&& outputprep.indexOf(wordsa[bb]) > -1
-									&& adj.indexOf(wordsa[bb]) > -1)
+									&& adj.indexOf(wordsa[bb+2]) > -1)
 
 								{
 									outputprep2 =
 										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
 																							 1] +
-										" " + wordsa[bb] + " " + wordsa[bb + 1] + " " + wordsa[bb +
-																							   2] +
-										" ";
+										" " + wordsa[bb] + " " + wordsa[bb + 1] + " ";
 									break;
 								}
 							}
@@ -123,7 +121,7 @@ function btn_OnTouch()
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
-								txt = app.ReadFile("/sdcard/security.txt");
+								txt = app.ReadFile("/sdcard/philosophy.txt");
 									app.ShowPopup( "sec" );
 								sentencea = txt.split(".");
 								break;
