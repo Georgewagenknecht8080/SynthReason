@@ -28,16 +28,20 @@ function OnStart()
 function btn_OnTouch()
 {
 
-	var txt = app.ReadFile("/sdcard/philosophy.txt");
-	var sentencea = txt.split(".");
+
+var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
+		bootloader += app.ReadFile("/sdcard/consciousness.txt");
+			bootloader += app.ReadFile("/sdcard/mind.txt");
+	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
-		var txt = app.ReadFile("/sdcard/philosophy.txt");
+		var txt = bootloader;
+
 		var sentence = txt.split(".");
 		var fmax = 3;
-		for (var x = 0; x < 10; x++)
+		for (var x = 0; x < 20; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
 			var adv = app.ReadFile("/sdcard/adv.txt");
@@ -53,18 +57,16 @@ function btn_OnTouch()
 				if (words[b - 4] !== undefined && words[b - 3] !== undefined
 					&& words[b - 2] !== undefined && words[b - 1] !== undefined
 					&& words[b] !== undefined && words[b + 1] !== undefined
-					&& words[b + 2] !== undefined && words[b + 2].length > 5)
+					&& words[b + 2] !== undefined)
 				{
 					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
 						&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
-						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b+2]) > -1)
+						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b+1]) > -1)
 					{
 						outputprep =
 							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
-							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b +
-																							 2] +
-							" ";
+							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b + 2] + " " + words[b + 3] + ", ";
 
 
 						var array1 = outputprep;
@@ -83,10 +85,10 @@ function btn_OnTouch()
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
-									&& dic.indexOf(wordsa[bb + 1]) > -1
-									&& dic.indexOf(wordsa[bb + 2]) > -1
-									&& outputprep.indexOf(wordsa[bb]) > -1
-									&& adj.indexOf(wordsa[bb+2]) > -1)
+									&& wordsa[bb].length > 3
+											&& wordsa[bb+1].length > 3
+							
+				)
 
 								{
 									outputprep2 =
@@ -99,7 +101,7 @@ function btn_OnTouch()
 						}
 
 
-						var array1 = "system,intelligence,process,situation,";
+						var array1 = "system,intelligence,process,situation,impair,damage";
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
@@ -114,19 +116,7 @@ function btn_OnTouch()
 						}
 
 
-
-						var array1 = "thought,consciousness,idea,living,reason,knowledge";
-						var array = array1.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt = app.ReadFile("/sdcard/philosophy.txt");
-									app.ShowPopup( "sec" );
-								sentencea = txt.split(".");
-								break;
-							}
-						}
+			
 
 
 						var array1 = "hack,attack,evil,kill,destroy,virus,infect";
@@ -152,7 +142,7 @@ function btn_OnTouch()
 							edt.SetText(output);
 						}
 
-						output += ".\n\n";
+						output += ".\n\n\n";
 						app.WriteFile("/sdcard/outputlog.txt", output);
 						edt.SetText(output);
 
