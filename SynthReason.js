@@ -55,12 +55,12 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 				if (words[b - 4] !== undefined && words[b - 3] !== undefined
 					&& words[b - 2] !== undefined && words[b - 1] !== undefined
 					&& words[b] !== undefined && words[b + 1] !== undefined
-					&& words[b + 2] !== undefined)
+					&& words[b + 2] !== undefined && words[b + 3] !== undefined)
 				{
 					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
 						&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
-						&& dic.indexOf(words[b + 2]) > -1 && noun.indexOf(words[b+1]) > -1)
+						&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1  && noun.indexOf(words[b+1]) > -1)
 					{
 						outputprep =
 							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
