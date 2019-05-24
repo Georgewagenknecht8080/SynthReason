@@ -27,9 +27,8 @@ function OnStart()
 
 function btn_OnTouch()
 {
-
-
-var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
+var	bootloader = app.ReadFile("/sdcard/tweet.txt");
+	bootloader += app.ReadFile("/sdcard/selfawareness.txt");
 		bootloader += app.ReadFile("/sdcard/consciousness.txt");
 			bootloader += app.ReadFile("/sdcard/mind.txt");
 	var sentencea = bootloader.split(".");
@@ -101,7 +100,7 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 						}
 
 
-						var array1 = "system,intelligence,process,situation,impair,damage";
+						var array1 = "impair,damage,illness";
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
@@ -109,7 +108,7 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 							{
 								txt = app.ReadFile("/sdcard/cybernetics.txt");
 								txt += app.ReadFile("/sdcard/artificialintelligence.txt");
-								app.ShowPopup( "cyb int" );
+								app.ShowPopup( "cybnetics & intelligence" );
 								sentencea = txt.split(".");
 								break;
 							}
