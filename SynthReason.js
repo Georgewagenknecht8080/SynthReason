@@ -27,8 +27,7 @@ function OnStart()
 
 function btn_OnTouch()
 {
-var	bootloader = app.ReadFile("/sdcard/tweet.txt");
-	bootloader += app.ReadFile("/sdcard/selfawareness.txt");
+var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 		bootloader += app.ReadFile("/sdcard/consciousness.txt");
 			bootloader += app.ReadFile("/sdcard/mind.txt");
 	var sentencea = bootloader.split(".");
