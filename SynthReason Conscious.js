@@ -17,7 +17,7 @@ var stage = 0;
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
-		edtin = app.CreateTextEdit("", 0.96, 0.1);
+	edtin = app.CreateTextEdit("", 0.96, 0.1);
 	edtin.SetTextSize(10);
 	lay.AddChild(edtin);
 	edt = app.CreateTextEdit("", 0.96, 0.8);
@@ -31,10 +31,10 @@ function OnStart()
 
 function btn_OnTouch()
 {
-var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
-		bootloader += app.ReadFile("/sdcard/consciousness.txt");
-			bootloader += app.ReadFile("/sdcard/mind.txt");
-				bootloader += app.ReadFile("/sdcard/chat.txt");
+	var bootloader = app.ReadFile("/sdcard/selfawareness.txt");
+	bootloader += app.ReadFile("/sdcard/consciousness.txt");
+	bootloader += app.ReadFile("/sdcard/mind.txt");
+	bootloader += app.ReadFile("/sdcard/chat.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
@@ -65,22 +65,28 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
 						&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
-						&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1  && noun.indexOf(words[b+1]) > -1)
+						&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1
+						&& noun.indexOf(words[b + 1]) > -1)
 					{
-					
-								if (edtin.GetText().indexOf(words[b - 4] > -1) || edtin.GetText().indexOf(words[b-3] > -1)
-					|| edtin.GetText().indexOf(words[b-2] > -1) || edtin.GetText().indexOf(words[b-1]> -1)
-					|| edtin.GetText().indexOf(words[b] > -1) || edtin.GetText().indexOf(words[b + 1] > -1)
-					|| edtin.GetText().indexOf(words[b + 2]> -1) || edtin.GetText().indexOf(words[b + 3] > -1))
-				{
-			
-					outputprep2 = "";
-						outputprep =
-							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
-							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b + 2] + " " + words[b + 3] + ", ";
+
+						if (edtin.GetText().indexOf(words[b - 4] > -1)
+							|| edtin.GetText().indexOf(words[b - 3] > -1)
+							|| edtin.GetText().indexOf(words[b - 2] > -1)
+							|| edtin.GetText().indexOf(words[b - 1] > -1)
+							|| edtin.GetText().indexOf(words[b] > -1)
+							|| edtin.GetText().indexOf(words[b + 1] > -1)
+							|| edtin.GetText().indexOf(words[b + 2] > -1)
+							|| edtin.GetText().indexOf(words[b + 3] > -1))
+						{
+
+							outputprep2 = "";
+							outputprep =
+								words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
+								words[b - 1] + " " + words[b] + " " + words[b + 1] + " " +
+								words[b + 2] + " " + words[b + 3] + ", ";
 
 
-}
+						}
 
 						var array1 = outputprep;
 						var array = array1.split(" ");
@@ -98,10 +104,7 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
-									&& wordsa[bb].length > 3
-											&& wordsa[bb+1].length > 3
-							
-				)
+									&& wordsa[bb].length > 3 && wordsa[bb + 1].length > 3)
 
 								{
 									outputprep2 +=
@@ -129,31 +132,30 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
-									&& wordsa[bb].length > 3
-											&& wordsa[bb+1].length > 3
-							
-				)
+									&& wordsa[bb].length > 3 && wordsa[bb + 1].length > 3)
 
 								{
-								
-														if (edtin.GetText().indexOf(words[b - 4] > -1) || edtin.GetText().indexOf(words[b-3] > -1)
-					|| edtin.GetText().indexOf(words[b-2] > -1) || edtin.GetText().indexOf(words[b-1]> -1)
-					|| edtin.GetText().indexOf(words[b] > -1) || edtin.GetText().indexOf(words[b + 1] > -1)
-					|| edtin.GetText().indexOf(words[b + 2]> -1) || edtin.GetText().indexOf(words[b + 3] > -1))
-				{
-									outputprep2 +=
-										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
+
+									if (edtin.GetText().indexOf(words[b - 4] > -1)
+										|| edtin.GetText().indexOf(words[b - 3] > -1)
+										|| edtin.GetText().indexOf(words[b - 2] > -1)
+										|| edtin.GetText().indexOf(words[b - 1] > -1)
+										|| edtin.GetText().indexOf(words[b] > -1)
+										|| edtin.GetText().indexOf(words[b + 1] > -1)
+										|| edtin.GetText().indexOf(words[b + 2] > -1)
+										|| edtin.GetText().indexOf(words[b + 3] > -1))
+									{
+										outputprep2 +=
+											wordsa[bb - 3] + " " + wordsa[bb - 2] + " " +
+											wordsa[bb - 1] + " " + wordsa[bb] + " " + wordsa[bb +
 																							 1] +
-										" " + wordsa[bb] + " " + wordsa[bb + 1] + " ";
-									break;
-									
+											" ";
+										break;
+
 									}
 								}
 							}
 						}
-
-
-
 						var array1 = "impair,damage,illness";
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
@@ -162,16 +164,11 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 							{
 								txt = app.ReadFile("/sdcard/cybernetics.txt");
 								txt += app.ReadFile("/sdcard/artificialintelligence.txt");
-								app.ShowPopup( "cybnetics & intelligence" );
+								app.ShowPopup("cybnetics & intelligence");
 								sentencea = txt.split(".");
 								break;
 							}
 						}
-
-
-			
-
-
 						var array1 = "hack,attack,evil,kill,destroy,virus,infect";
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
@@ -179,7 +176,7 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
 								txt = app.ReadFile("/sdcard/ethics.txt");
-									app.ShowPopup( "ethics" );
+								app.ShowPopup("ethics");
 								sentencea = txt.split(".");
 								break;
 							}
@@ -196,21 +193,16 @@ var	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 						output += ".\n\n\n";
 						app.WriteFile("/sdcard/outputlog.txt", output, "append");
 						edt.SetText(output);
-						
-    var now = new Date().getTime();
-    var newtime = new Date().getTime()+1000;
-   while( now < newtime){
-   now = new Date().getTime();
-}
 
-
+						var now = new Date().getTime();
+						var newtime = new Date().getTime() + 1000;
+						while (now < newtime)
+						{
+							now = new Date().getTime();
+						}
 					}
 				}
 			}
 		}
 	}
-
-
-
-
 }
