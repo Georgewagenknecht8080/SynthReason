@@ -34,13 +34,14 @@ function btn_OnTouch()
 	var bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 	bootloader += app.ReadFile("/sdcard/consciousness.txt");
 	bootloader += app.ReadFile("/sdcard/mind.txt");
-	bootloader += app.ReadFile("/sdcard/chat.txt");
+	bootloader += app.ReadFile("/sdcard/KB.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
 		var txt = bootloader;
+
 		var sentence = txt.split(".");
 		var size = edtin.GetText();
 		var size1 = size.split(" ");
