@@ -140,11 +140,11 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 						if (output.indexOf(outputprep) == -1)
 						{
 							counter++;
-							output = outputprep + outputprep2;
+							output = edtin.GetText() + ": " +  outputprep + outputprep2;
 							edt.SetText(output);
 						}
 						output += ".\n\n\n";
-						app.WriteFile("/sdcard/outputlog.txt", output);
+						app.WriteFile("/sdcard/outputlog.txt", output, "append");
 						edt.SetText(output);
 						var now = new Date().getTime();
 						var newtime = new Date().getTime() + 2000;
