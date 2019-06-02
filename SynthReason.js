@@ -58,7 +58,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 				var a = Math.floor(Math.random() * (sentence.length)) + 0;
 				var sentencestr = sentence[a];
 				var words = sentencestr.split(" ");
-				var b = Math.floor(Math.random() * (words.length - 1)) + 0;
+				var b = Math.floor(Math.random() * (words.length - 4)) + 0;
 				if (words[b - 4] !== undefined && words[b - 3] !== undefined
 					&& words[b - 2] !== undefined && words[b - 1] !== undefined
 					&& words[b] !== undefined && words[b + 1] !== undefined
@@ -92,7 +92,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 							var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 							var sentencestra = sentencea[aa];
 							var wordsa = sentencestra.split(" ");
-							var bb = Math.floor(Math.random() * (wordsa.length - 1)) + 0;
+							var bb = Math.floor(Math.random() * (wordsa.length - 3)) + 0;
 							if (wordsa[bb - 3] !== undefined && wordsa[bb - 2] !== undefined
 								&& wordsa[bb - 1] !== undefined & wordsa[bb] !== undefined
 								&& wordsa[bb + 1] !== undefined && wordsa[bb + 2] !== undefined)
@@ -104,11 +104,22 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 									&& wordsa[bb].length > 3 && wordsa[bb + 1].length > 3)
 
 								{
+								
+												if (edtin.GetText().indexOf(wordsa[b - 4] > -1)
+							|| edtin.GetText().indexOf(wordsa[b - 3] > -1)
+							|| edtin.GetText().indexOf(wordsa[b - 2] > -1)
+							|| edtin.GetText().indexOf(wordsa[b - 1] > -1)
+							|| edtin.GetText().indexOf(wordsa[b] > -1)
+							|| edtin.GetText().indexOf(wordsa[b + 1] > -1)
+							|| edtin.GetText().indexOf(wordsa[b + 2] > -1)
+							|| edtin.GetText().indexOf(wordsa[b + 3] > -1))
+						{
 									outputprep2 =
 										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
 																							 1] +
 										" " + wordsa[bb] + " " + wordsa[bb + 1] + " ";
 									break;
+									}
 								}
 							}
 						}
@@ -125,7 +136,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 								break;
 							}
 						}
-						var array1 = "hack,attack,evil,kill,destroy,virus,infect";
+						var array1 = "hack,attack,evil,kill,killing,destroy,virus,infect";
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
@@ -140,18 +151,13 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 						if (output.indexOf(outputprep) == -1)
 						{
 							counter++;
-							output = edtin.GetText() + ": " +  outputprep + outputprep2;
+							output += edtin.GetText() + ": " +  outputprep + outputprep2;
 							edt.SetText(output);
 						}
 						output += ".\n\n\n";
-						app.WriteFile("/sdcard/outputlog.txt", output, "append");
+						app.WriteFile("/sdcard/outputlog.txt", output,);
 						edt.SetText(output);
-						var now = new Date().getTime();
-						var newtime = new Date().getTime() + 2000;
-						while (now < newtime)
-						{
-							now = new Date().getTime();
-						}
+					
 					}
 				}
 			}
