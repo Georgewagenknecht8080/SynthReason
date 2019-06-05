@@ -17,6 +17,8 @@ var loop = 5;
 
 	var array1 = "thought,reason,logic,idea,purpose,life";
 	var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
+	var array3 = "liberty,politics,function,ideology,human";
+	var array4 = "build,construct,design,fabricate,use,model,chart";
 					
 function OnStart()
 {
@@ -41,7 +43,7 @@ function btn_OnTouch()
 	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 	bootloader += app.ReadFile("/sdcard/consciousness.txt");
 	bootloader += app.ReadFile("/sdcard/mind.txt");
-	bootloader += app.ReadFile("/sdcard/KB.txt");
+	
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
@@ -100,7 +102,7 @@ function btn_OnTouch()
 									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
 
 								{
-		app.ShowPopup("cybernetics");
+		app.ShowPopup("philosophy");
 			var x = Math.floor(Math.random() * (words.length)) + 0;
 			array1 += "," + words[x];
 									outputprep +=  " " + words[b + 2] + " " + words[b + 3] + " " + words[b + 4] +	" " + words[b + 5] + " ";
@@ -128,6 +130,50 @@ function btn_OnTouch()
 								break;
 							}
 						}
+						
+						
+							var array = array3.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+
+								if (words[b + 2] !== undefined && words[b + 3] !== undefined
+									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+								{
+
+									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
+													var x = Math.floor(Math.random() * (words.length)) + 0;
+			array2 += "," + words[x];
+															app.ShowPopup("humanities");
+											}
+
+								break;
+							}
+						}
+				
+							var array = array4.split(",");
+						for (var traverse = 0; traverse < array.length; traverse++)
+						{
+							if (outputprep.indexOf(array[traverse]) > -1)
+							{
+
+								if (words[b + 2] !== undefined && words[b + 3] !== undefined
+									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+								{
+
+									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
+													var x = Math.floor(Math.random() * (words.length)) + 0;
+			array2 += "," + words[x];
+															app.ShowPopup("technological");
+											}
+
+								break;
+							}
+						}
+				
+						
+						
 						if (output.indexOf(outputprep) == -1)
 						{
 					if(fmax == loop){
