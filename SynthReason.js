@@ -13,6 +13,11 @@
 var output = "";
 var outputprep = "";
 var stage = 0;
+var loop = 5;
+
+	var array1 = "thought,reason,logic,idea,purpose,life";
+	var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
+					
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
@@ -32,7 +37,7 @@ function OnStart()
 
 function btn_OnTouch()
 {
-var bootloader = app.ReadFile("/sdcard/philosophy.txt");
+	var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 	bootloader += app.ReadFile("/sdcard/consciousness.txt");
 	bootloader += app.ReadFile("/sdcard/mind.txt");
@@ -45,7 +50,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 		var txt = bootloader;
 
 		var sentence = txt.split(".");
-		var fmax = 3;
+		var fmax = loop;
 		for (var x = 0; x < 20; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
@@ -53,6 +58,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 			var adj = app.ReadFile("/sdcard/adj.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
 			var counter = 0;
+				outputprep = "";
 			while (counter < fmax)
 			{
 				var a = Math.floor(Math.random() * (sentence.length)) + 0;
@@ -79,85 +85,62 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 							|| edtin.GetText().indexOf(words[b + 2] > -1)
 							|| edtin.GetText().indexOf(words[b + 3] > -1))
 						{
-							outputprep =
+							outputprep +=
 								words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
 								words[b - 1] + " " + words[b] + " " + words[b + 1] + " " +
 								words[b + 2] + " " + words[b + 3] + ", ";
 						}
-
-						var array1 = outputprep;
-						var array = array1.split(" ");
-						while (0 == 0)
-						{
-							var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
-							var sentencestra = sentencea[aa];
-							var wordsa = sentencestra.split(" ");
-							var bb = Math.floor(Math.random() * (wordsa.length - 3)) + 0;
-							if (wordsa[bb - 3] !== undefined && wordsa[bb - 2] !== undefined
-								&& wordsa[bb - 1] !== undefined & wordsa[bb] !== undefined
-								&& wordsa[bb + 1] !== undefined && wordsa[bb + 2] !== undefined)
-							{
-								if (dic.indexOf(wordsa[bb - 3]) > -1
-									&& dic.indexOf(wordsa[bb - 2]) > -1
-									&& dic.indexOf(wordsa[bb - 1]) > -1
-									&& dic.indexOf(wordsa[bb]) > -1
-									&& wordsa[bb].length > 3 && wordsa[bb + 1].length > 3)
-
-								{
-								
-												if (edtin.GetText().indexOf(wordsa[b - 4] > -1)
-							|| edtin.GetText().indexOf(wordsa[b - 3] > -1)
-							|| edtin.GetText().indexOf(wordsa[b - 2] > -1)
-							|| edtin.GetText().indexOf(wordsa[b - 1] > -1)
-							|| edtin.GetText().indexOf(wordsa[b] > -1)
-							|| edtin.GetText().indexOf(wordsa[b + 1] > -1)
-							|| edtin.GetText().indexOf(wordsa[b + 2] > -1)
-							|| edtin.GetText().indexOf(wordsa[b + 3] > -1))
-						{
-									outputprep2 =
-										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
-																							 1] +
-										" " + wordsa[bb] + " " + wordsa[bb + 1] + " ";
-									break;
-									}
-								}
-							}
-						}
-						var array1 = "impair,damage,illness";
+					
 						var array = array1.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
-								txt = app.ReadFile("/sdcard/cybernetics.txt");
-								txt += app.ReadFile("/sdcard/artificialintelligence.txt");
-								app.ShowPopup("cybnetics & intelligence");
-								sentencea = txt.split(".");
+								if (words[b + 2] !== undefined && words[b + 3] !== undefined
+									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+
+								{
+		app.ShowPopup("cybernetics");
+			var x = Math.floor(Math.random() * (words.length)) + 0;
+			array1 += "," + words[x];
+									outputprep +=  " " + words[b + 2] + " " + words[b + 3] + " " + words[b + 4] +	" " + words[b + 5] + " ";
+								}
+						
 								break;
 							}
 						}
-						var array1 = "hack,attack,evil,kill,killing,destroy,virus,infect";
-						var array = array1.split(",");
+							var array = array2.split(",");
 						for (var traverse = 0; traverse < array.length; traverse++)
 						{
 							if (outputprep.indexOf(array[traverse]) > -1)
 							{
-								txt = app.ReadFile("/sdcard/ethics.txt");
-								app.ShowPopup("ethics");
-								sentencea = txt.split(".");
+
+								if (words[b + 2] !== undefined && words[b + 3] !== undefined
+									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+								{
+
+									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
+													var x = Math.floor(Math.random() * (words.length)) + 0;
+			array2 += "," + words[x];
+															app.ShowPopup("ethics");
+											}
+
 								break;
 							}
 						}
 						if (output.indexOf(outputprep) == -1)
 						{
+					if(fmax == loop){
 							counter++;
-							output += edtin.GetText() + ": " +  outputprep + outputprep2;
+							output += edtin.GetText() + ": " + outputprep;
 							edt.SetText(output);
-						}
-						output += ".\n\n\n";
-						app.WriteFile("/sdcard/outputlog.txt", output,);
-						edt.SetText(output);
 					
+				
+						app.WriteFile("/sdcard/outputlog.txt", output, "append");
+							output = "";
+						
+								}
+						}
 					}
 				}
 			}
