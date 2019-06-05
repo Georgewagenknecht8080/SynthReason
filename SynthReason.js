@@ -13,13 +13,13 @@
 var output = "";
 var outputprep = "";
 var stage = 0;
-var loop = 5;
+var loop = 10;
 
-	var array1 = "thought,reason,logic,idea,purpose,life";
-	var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
-	var array3 = "liberty,politics,function,ideology,human";
-	var array4 = "build,construct,design,fabricate,use,model,chart";
-					
+var array1 = "thought,reason,logic,idea,purpose,life";
+var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
+var array3 = "liberty,politics,function,ideology,human";
+var array4 = "build,construct,design,fabricate,use,model,chart";
+
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
@@ -43,7 +43,7 @@ function btn_OnTouch()
 	bootloader = app.ReadFile("/sdcard/selfawareness.txt");
 	bootloader += app.ReadFile("/sdcard/consciousness.txt");
 	bootloader += app.ReadFile("/sdcard/mind.txt");
-	
+
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
@@ -53,141 +53,168 @@ function btn_OnTouch()
 
 		var sentence = txt.split(".");
 		var fmax = loop;
-		for (var x = 0; x < 20; x++)
+		var noun = app.ReadFile("/sdcard/noun.txt");
+		var adv = app.ReadFile("/sdcard/adv.txt");
+		var adj = app.ReadFile("/sdcard/adj.txt");
+		var dic = app.ReadFile("/sdcard/words.txt");
+		var counter = 0;
+		
+		outputprep = "";
+		while (counter < fmax)
 		{
-			var noun = app.ReadFile("/sdcard/noun.txt");
-			var adv = app.ReadFile("/sdcard/adv.txt");
-			var adj = app.ReadFile("/sdcard/adj.txt");
-			var dic = app.ReadFile("/sdcard/words.txt");
-			var counter = 0;
-				outputprep = "";
-			while (counter < fmax)
+			var a = Math.floor(Math.random() * (sentence.length)) + 0;
+			var sentencestr = sentence[a];
+			var words = sentencestr.split(" ");
+			var b = Math.floor(Math.random() * (words.length - 4)) + 0;
+			if (words[b - 4] !== undefined && words[b - 3] !== undefined
+				&& words[b - 2] !== undefined && words[b - 1] !== undefined
+				&& words[b] !== undefined && words[b + 1] !== undefined
+				&& words[b + 2] !== undefined && words[b + 3] !== undefined)
 			{
-				var a = Math.floor(Math.random() * (sentence.length)) + 0;
-				var sentencestr = sentence[a];
-				var words = sentencestr.split(" ");
-				var b = Math.floor(Math.random() * (words.length - 4)) + 0;
-				if (words[b - 4] !== undefined && words[b - 3] !== undefined
-					&& words[b - 2] !== undefined && words[b - 1] !== undefined
-					&& words[b] !== undefined && words[b + 1] !== undefined
-					&& words[b + 2] !== undefined && words[b + 3] !== undefined)
+				if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
+					&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
+					&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
+					&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1
+					&& noun.indexOf(words[b + 1]) > -1)
 				{
-					if (dic.indexOf(words[b - 4]) > -1 && dic.indexOf(words[b - 3]) > -1
-						&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
-						&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
-						&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1
-						&& noun.indexOf(words[b + 1]) > -1)
+					if (edtin.GetText().indexOf(words[b - 4] > -1)
+						|| edtin.GetText().indexOf(words[b - 3] > -1)
+						|| edtin.GetText().indexOf(words[b - 2] > -1)
+						|| edtin.GetText().indexOf(words[b - 1] > -1)
+						|| edtin.GetText().indexOf(words[b] > -1)
+						|| edtin.GetText().indexOf(words[b + 1] > -1)
+						|| edtin.GetText().indexOf(words[b + 2] > -1)
+						|| edtin.GetText().indexOf(words[b + 3] > -1))
 					{
-						if (edtin.GetText().indexOf(words[b - 4] > -1)
-							|| edtin.GetText().indexOf(words[b - 3] > -1)
-							|| edtin.GetText().indexOf(words[b - 2] > -1)
-							|| edtin.GetText().indexOf(words[b - 1] > -1)
-							|| edtin.GetText().indexOf(words[b] > -1)
-							|| edtin.GetText().indexOf(words[b + 1] > -1)
-							|| edtin.GetText().indexOf(words[b + 2] > -1)
-							|| edtin.GetText().indexOf(words[b + 3] > -1))
-						{
-							outputprep +=
-								words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
-								words[b - 1] + " " + words[b] + " " + words[b + 1] + " " +
-								words[b + 2] + " " + words[b + 3] + ", ";
-						}
-					
-						var array = array1.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								if (words[b + 2] !== undefined && words[b + 3] !== undefined
-									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
-
-								{
-		app.ShowPopup("philosophy");
-			var x = Math.floor(Math.random() * (words.length)) + 0;
-			array1 += "," + words[x];
-									outputprep +=  " " + words[b + 2] + " " + words[b + 3] + " " + words[b + 4] +	" " + words[b + 5] + " ";
-								}
-						
-								break;
-							}
-						}
-							var array = array2.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-
-								if (words[b + 2] !== undefined && words[b + 3] !== undefined
-									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
-								{
-
-									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
-													var x = Math.floor(Math.random() * (words.length)) + 0;
-			array2 += "," + words[x];
-															app.ShowPopup("ethics");
-											}
-
-								break;
-							}
-						}
-						
-						
-							var array = array3.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-
-								if (words[b + 2] !== undefined && words[b + 3] !== undefined
-									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
-								{
-
-									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
-													var x = Math.floor(Math.random() * (words.length)) + 0;
-			array2 += "," + words[x];
-															app.ShowPopup("humanities");
-											}
-
-								break;
-							}
-						}
-				
-							var array = array4.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-
-								if (words[b + 2] !== undefined && words[b + 3] !== undefined
-									&& words[b + 4] !== undefined && words[b + 5] !== undefined)
-								{
-
-									outputprep += " " +words[b + 2] + " " + words[b + 3] + " " + words[b + 4] + " " + words[b + 5] + " ";
-													var x = Math.floor(Math.random() * (words.length)) + 0;
-			array2 += "," + words[x];
-															app.ShowPopup("technological");
-											}
-
-								break;
-							}
-						}
-				
-						
-						
-						if (output.indexOf(outputprep) == -1)
-						{
-					if(fmax == loop){
-							counter++;
-							output += edtin.GetText() + ": " + outputprep;
-							edt.SetText(output);
-					
-				
-						app.WriteFile("/sdcard/outputlog.txt", output, "append");
-							output = "";
-						
-								}
-						}
+						outputprep +=
+							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
+							words[b - 1] + " " + words[b] + " " + words[b + 1] +	" " + words[b + 2] + " " + words[b + 3] + " ";
 					}
+				}
+				var array = array1.split(",");
+				for (var traverse = 0; traverse < array.length; traverse++)
+				{
+					if (outputprep.indexOf(array[traverse]) > -1)
+					{
+						if (words[b + 2] !== undefined && words[b + 3] !== undefined
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+
+						{
+
+							var outputprepx =
+ " " + words[b + 4] +
+								" " + words[b + 5] + " ";
+
+							if (output.indexOf(outputprepx) == -1)
+							{
+								outputprep += outputprepx;
+
+								var x = Math.floor(Math.random() * (words.length)) + 0;
+								array1 += "," + words[x];
+								app.ShowPopup("philosophy");
+								break;
+							}
+						}
+						
+					}
+				}
+
+		var array = array2.split(",");
+				for (var traverse = 0; traverse < array.length; traverse++)
+				{
+					if (outputprep.indexOf(array[traverse]) > -1)
+					{
+						if (words[b + 2] !== undefined && words[b + 3] !== undefined
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+
+						{
+
+							var outputprepx =
+ " " + words[b + 4] +
+								" " + words[b + 5] + " ";
+
+							if (output.indexOf(outputprepx) == -1)
+							{
+								outputprep += outputprepx;
+
+								var x = Math.floor(Math.random() * (words.length)) + 0;
+								array1 += "," + words[x];
+								app.ShowPopup("philosophy");
+									break;
+							}
+						}
+					
+					}
+				}
+
+
+				var array = array3.split(",");
+				for (var traverse = 0; traverse < array.length; traverse++)
+				{
+					if (outputprep.indexOf(array[traverse]) > -1)
+					{
+						if (words[b + 2] !== undefined && words[b + 3] !== undefined
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+
+						{
+
+							var outputprepx =
+ " " + words[b + 4] +
+								" " + words[b + 5] + " ";
+
+							if (output.indexOf(outputprepx) == -1)
+							{
+								outputprep += outputprepx;
+
+								var x = Math.floor(Math.random() * (words.length)) + 0;
+								array1 += "," + words[x];
+								app.ShowPopup("philosophy");
+									break;
+							}
+						}
+					
+					}
+				}
+
+		var array = array4.split(",");
+				for (var traverse = 0; traverse < array.length; traverse++)
+				{
+					if (outputprep.indexOf(array[traverse]) > -1)
+					{
+						if (words[b + 2] !== undefined && words[b + 3] !== undefined
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined)
+
+						{
+
+							var outputprepx =
+ " " + words[b + 4] +
+								" " + words[b + 5] + " ";
+
+							if (output.indexOf(outputprepx) == -1)
+							{
+								outputprep += outputprepx;
+
+								var x = Math.floor(Math.random() * (words.length)) + 0;
+								array1 += "," + words[x];
+								app.ShowPopup("philosophy");
+									break;
+							}
+						}
+					
+					}
+				}
+
+
+				if (output.indexOf(outputprep) == -1)
+				{
+					counter++;
+					output += edtin.GetText() + ": " + outputprep;
+					edt.SetText(output);
+
+
+					app.WriteFile("/sdcard/outputlog.txt", output, "append");
+				output = "";
+				
 				}
 			}
 		}
