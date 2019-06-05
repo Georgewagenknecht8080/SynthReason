@@ -105,7 +105,7 @@ function btn_OnTouch()
  " " + words[b + 4] +
 								" " + words[b + 5] + " ";
 
-							if (output.indexOf(outputprepx) == -1)
+							if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
 
@@ -133,7 +133,7 @@ function btn_OnTouch()
  " " + words[b + 4] +
 								" " + words[b + 5] + " ";
 
-							if (output.indexOf(outputprepx) == -1)
+							if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
 
@@ -162,7 +162,7 @@ function btn_OnTouch()
  " " + words[b + 4] +
 								" " + words[b + 5] + " ";
 
-							if (output.indexOf(outputprepx) == -1)
+							if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
 
@@ -190,14 +190,13 @@ function btn_OnTouch()
  " " + words[b + 4] +
 								" " + words[b + 5] + " ";
 
-							if (output.indexOf(outputprepx) == -1)
+							if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
 
 								var x = Math.floor(Math.random() * (words.length)) + 0;
 								array1 += "," + words[x];
 								app.ShowPopup("philosophy");
-									break;
 							}
 						}
 					
