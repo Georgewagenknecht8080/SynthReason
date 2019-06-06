@@ -14,7 +14,6 @@ var output = "";
 var outputprep = "";
 var stage = 0;
 var loop = 10;
-
 var array1 = "thought,reason,logic,idea,purpose,life";
 var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
 var array3 = "liberty,politics,function,ideology,human";
@@ -27,7 +26,6 @@ function OnStart()
 	edtin = app.CreateTextEdit("", 0.96, 0.05);
 	edtin.SetTextSize(8);
 	lay.AddChild(edtin);
-
 	edt = app.CreateTextEdit("", 0.96, 0.8);
 	edt.SetTextSize(8);
 	lay.AddChild(edt);
@@ -40,16 +38,12 @@ function OnStart()
 function btn_OnTouch()
 {
 	var bootloader = app.ReadFile("/sdcard/philosophy.txt");
-
-
-
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
 		var txt = bootloader;
-
 		var sentence = txt.split(".");
 		var fmax = loop;
 		var noun = app.ReadFile("/sdcard/noun.txt");
@@ -57,7 +51,10 @@ function btn_OnTouch()
 		var adj = app.ReadFile("/sdcard/adj.txt");
 		var dic = app.ReadFile("/sdcard/words.txt");
 		var counter = 0;
-		
+		output = edtin.GetText() + ": " + outputprep;
+		output += "\n\n\n";
+		edt.SetText(output);
+		app.WriteFile("/sdcard/outputlog.txt", output, "append");
 		outputprep = "";
 		while (counter < fmax)
 		{
@@ -87,7 +84,9 @@ function btn_OnTouch()
 					{
 						outputprep +=
 							words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
-							words[b - 1] + " " + words[b] + " " + words[b + 1] +	" " + words[b + 2] + " " + words[b + 3] + " ";
+							words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b +
+																							 2] +
+							" " + words[b + 3] + " ";
 					}
 				}
 				var array = array1.split(",");
@@ -95,30 +94,29 @@ function btn_OnTouch()
 				{
 					if (outputprep.indexOf(array[traverse]) > -1)
 					{
-					sent  = app.ReadFile("/sdcard/philosophy.txt");
-					sentence = sent.split(".");
+						sent = app.ReadFile("/sdcard/philosophy.txt");
+						sentence = sent.split(".");
 						var xx = Math.floor(Math.random() * (sentence.length)) + 0;
-							var sentencestr = sentence[xx];
-			var words = sentencestr.split(" ");
-							b = Math.floor(Math.random() * (words.length - 6)) + 0;
+						var sentencestr = sentence[xx];
+						var words = sentencestr.split(" ");
+						b = Math.floor(Math.random() * (words.length - 6)) + 0;
 						if (words[b + 2] !== undefined && words[b + 3] !== undefined
-							&& words[b + 4] !== undefined && words[b + 5] !== undefined && words[b + 6] !== undefined	&& words[b + 7] !== undefined && words[b + 8] !== undefined && words[b + 9] !== undefined)
-
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined
+							&& words[b + 6] !== undefined && words[b + 7] !== undefined
+							&& words[b + 8] !== undefined && words[b + 9] !== undefined)
 						{
-
-							var outputprepx =  " " + words[b + 4] + " " + words[b + 5] + " "+ words[b + 6] + " "+ words[b + 7] + " " + words[b + 8] + " "+ words[b + 9] + " "
-
-							if (outputprep.indexOf(outputprepx) == -1)
+							var outputprepx =
+								" " + words[b + 4] + " " + words[b + 5] + " " + words[b + 6] +
+								" " + words[b + 7] + " " + words[b + 8] + " " + words[b + 9] +
+								" " if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
-
 								var x = Math.floor(Math.random() * (words.length)) + 0;
 								array1 += "," + words[x];
 								app.ShowPopup("philosophy");
 								break;
 							}
 						}
-						
 					}
 				}
 
@@ -127,30 +125,29 @@ function btn_OnTouch()
 				{
 					if (outputprep.indexOf(array[traverse]) > -1)
 					{
-					sent  = app.ReadFile("/sdcard/security.txt");
-					sentence = sent.split(".");
+						sent = app.ReadFile("/sdcard/security.txt");
+						sentence = sent.split(".");
 						var xx = Math.floor(Math.random() * (sentence.length)) + 0;
-							var sentencestr = sentence[xx];
-			var words = sentencestr.split(" ");
-							b = Math.floor(Math.random() * (words.length - 6)) + 0;
+						var sentencestr = sentence[xx];
+						var words = sentencestr.split(" ");
+						b = Math.floor(Math.random() * (words.length - 6)) + 0;
 						if (words[b + 2] !== undefined && words[b + 3] !== undefined
-							&& words[b + 4] !== undefined && words[b + 5] !== undefined && words[b + 6] !== undefined	&& words[b + 7] !== undefined && words[b + 8] !== undefined && words[b + 9] !== undefined)
-
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined
+							&& words[b + 6] !== undefined && words[b + 7] !== undefined
+							&& words[b + 8] !== undefined && words[b + 9] !== undefined)
 						{
-
-							var outputprepx =  " " + words[b + 4] + " " + words[b + 5] + " "+ words[b + 6] + " "+ words[b + 7] + " " + words[b + 8] + " "+ words[b + 9] + " "
-
-							if (outputprep.indexOf(outputprepx) == -1)
+							var outputprepx =
+								" " + words[b + 4] + " " + words[b + 5] + " " + words[b + 6] +
+								" " + words[b + 7] + " " + words[b + 8] + " " + words[b + 9] +
+								" " if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
-
 								var x = Math.floor(Math.random() * (words.length)) + 0;
 								array1 += "," + words[x];
 								app.ShowPopup("security");
 								break;
 							}
 						}
-						
 					}
 				}
 
@@ -159,30 +156,29 @@ function btn_OnTouch()
 				{
 					if (outputprep.indexOf(array[traverse]) > -1)
 					{
-					sent  = app.ReadFile("/sdcard/envsoc.txt");
-					sentence = sent.split(".");
+						sent = app.ReadFile("/sdcard/envsoc.txt");
+						sentence = sent.split(".");
 						var xx = Math.floor(Math.random() * (sentence.length)) + 0;
-							var sentencestr = sentence[xx];
-			var words = sentencestr.split(" ");
-							b = Math.floor(Math.random() * (words.length - 6)) + 0;
+						var sentencestr = sentence[xx];
+						var words = sentencestr.split(" ");
+						b = Math.floor(Math.random() * (words.length - 6)) + 0;
 						if (words[b + 2] !== undefined && words[b + 3] !== undefined
-							&& words[b + 4] !== undefined && words[b + 5] !== undefined && words[b + 6] !== undefined	&& words[b + 7] !== undefined && words[b + 8] !== undefined && words[b + 9] !== undefined)
-
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined
+							&& words[b + 6] !== undefined && words[b + 7] !== undefined
+							&& words[b + 8] !== undefined && words[b + 9] !== undefined)
 						{
-
-							var outputprepx =  " " + words[b + 4] + " " + words[b + 5] + " "+ words[b + 6] + " "+ words[b + 7] + " " + words[b + 8] + " "+ words[b + 9] + " "
-
-							if (outputprep.indexOf(outputprepx) == -1)
+							var outputprepx =
+								" " + words[b + 4] + " " + words[b + 5] + " " + words[b + 6] +
+								" " + words[b + 7] + " " + words[b + 8] + " " + words[b + 9] +
+								" " if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
-
 								var x = Math.floor(Math.random() * (words.length)) + 0;
 								array1 += "," + words[x];
 								app.ShowPopup("society");
 								break;
 							}
 						}
-						
 					}
 				}
 
@@ -193,53 +189,37 @@ function btn_OnTouch()
 				{
 					if (outputprep.indexOf(array[traverse]) > -1)
 					{
-					sent  = app.ReadFile("/sdcard/technology.txt");
-					sentence = sent.split(".");
+						sent = app.ReadFile("/sdcard/technology.txt");
+						sentence = sent.split(".");
 						var xx = Math.floor(Math.random() * (sentence.length)) + 0;
-							var sentencestr = sentence[xx];
-			var words = sentencestr.split(" ");
-							b = Math.floor(Math.random() * (words.length - 6)) + 0;
+						var sentencestr = sentence[xx];
+						var words = sentencestr.split(" ");
+						b = Math.floor(Math.random() * (words.length - 6)) + 0;
 						if (words[b + 2] !== undefined && words[b + 3] !== undefined
-							&& words[b + 4] !== undefined && words[b + 5] !== undefined && words[b + 6] !== undefined	&& words[b + 7] !== undefined && words[b + 8] !== undefined && words[b + 9] !== undefined)
-
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined
+							&& words[b + 6] !== undefined && words[b + 7] !== undefined
+							&& words[b + 8] !== undefined && words[b + 9] !== undefined)
 						{
-
-							var outputprepx =  " " + words[b + 4] + " " + words[b + 5] + " "+ words[b + 6] + " "+ words[b + 7] + " " + words[b + 8] + " "+ words[b + 9] + " "
-
-							if (outputprep.indexOf(outputprepx) == -1)
+							var outputprepx =
+								" " + words[b + 4] + " " + words[b + 5] + " " + words[b + 6] +
+								" " + words[b + 7] + " " + words[b + 8] + " " + words[b + 9] +
+								" " if (outputprep.indexOf(outputprepx) == -1)
 							{
 								outputprep += outputprepx;
-
 								var x = Math.floor(Math.random() * (words.length)) + 0;
 								array1 += "," + words[x];
 								app.ShowPopup("technology");
 								break;
 							}
 						}
-						
 					}
 				}
-
-
-
-}
-
-
-			
-
-			
-				if (output.indexOf(outputprep) == -1)
-				{
-					counter++;
-					output = edtin.GetText() + ": " + outputprep;
-					edt.SetText(output);
-
-
-					app.WriteFile("/sdcard/outputlog.txt", output, "append");
-				output = "\n\n\n";
-				
-				}
+			}
+			if (output.indexOf(outputprep) == -1)
+			{
+				counter++;
+			}
 		}
-		
 	}
 }
+
