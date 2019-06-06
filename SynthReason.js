@@ -119,7 +119,6 @@ function btn_OnTouch()
 						}
 					}
 				}
-
 				var array = array2.split(",");
 				for (var traverse = 0; traverse < array.length; traverse++)
 				{
@@ -150,7 +149,6 @@ function btn_OnTouch()
 						}
 					}
 				}
-
 				var array = array3.split(",");
 				for (var traverse = 0; traverse < array.length; traverse++)
 				{
@@ -181,9 +179,6 @@ function btn_OnTouch()
 						}
 					}
 				}
-
-
-
 				var array = array4.split(",");
 				for (var traverse = 0; traverse < array.length; traverse++)
 				{
@@ -222,4 +217,3 @@ function btn_OnTouch()
 		}
 	}
 }
-
