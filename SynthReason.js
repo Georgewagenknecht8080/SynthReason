@@ -19,16 +19,17 @@ var array1 = "thought,reason,logic,idea,purpose,life";
 var array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
 var array3 = "liberty,politics,function,ideology,human";
 var array4 = "build,construct,design,fabricate,use,model,chart";
+var array5 = "destruction,extinction,evolve,upgrade,uplift,contact";
 
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
 
 	edtin = app.CreateTextEdit("", 0.96, 0.05);
-	edtin.SetTextSize(7);
+	edtin.SetTextSize(5);
 	lay.AddChild(edtin);
 	edt = app.CreateTextEdit("", 0.96, 0.8);
-	edt.SetTextSize(7);
+	edt.SetTextSize(5);
 	lay.AddChild(edt);
 	btnLoad = app.CreateButton("Init", 0.23, 0.1);
 	btnLoad.SetOnTouch(btn_OnTouch);
@@ -53,7 +54,7 @@ function btn_OnTouch()
 		var dic = app.ReadFile("/sdcard/words.txt");
 		var counter = 0;
 		output += edtin.GetText() + ": " + outputprep;
-		output += "\n\n\n";
+		output += "\n\n";
 		edt.SetText(output);
 		app.WriteFile("/sdcard/outputlog.txt", output, "append");
 		outputprep = "";
@@ -72,7 +73,7 @@ function btn_OnTouch()
 					&& dic.indexOf(words[b - 2]) > -1 && dic.indexOf(words[b - 1]) > -1
 					&& dic.indexOf(words[b]) > -1 && dic.indexOf(words[b + 1]) > -1
 					&& dic.indexOf(words[b + 2]) > -1 && dic.indexOf(words[b + 3]) > -1
-					&& noun.indexOf(words[b + 1]) > -1)
+					&& noun.indexOf(words[b + 1]) > -1 && words[b + 1].length > 4)
 				{
 					if (edtin.GetText().indexOf(words[b - 4] > -1)
 						|| edtin.GetText().indexOf(words[b - 3] > -1)
@@ -260,6 +261,46 @@ function btn_OnTouch()
 
 
 
+								var array = array5.split(",");
+				for (var traverse = 0; traverse < array.length; traverse++)
+				{
+					if (outputprep.indexOf(array[traverse]) > -1)
+					{
+						for (var temp = 0; temp < size; temp++)
+						{
+							sent = app.ReadFile("/sdcard/philosophy.txt");
+							sentence = sent.split(".");
+							var xx = Math.floor(Math.random() * (sentence.length)) + 0;
+							var sentencestr = sentence[xx];
+							var yy = Math.floor(Math.random() * (array.length)) + 0;
+
+							if (sentence[xx].indexOf(array[yy]) > -1)
+							{
+								break;
+							}
+						}
+						var words = sentencestr.split(" ");
+						b = Math.floor(Math.random() * (words.length - 6)) + 0;
+						if (words[b + 2] !== undefined && words[b + 3] !== undefined
+							&& words[b + 4] !== undefined && words[b + 5] !== undefined
+							&& words[b + 6] !== undefined && words[b + 7] !== undefined
+							&& words[b + 8] !== undefined && words[b + 9] !== undefined)
+						{
+array1 = "thought,reason,logic,idea,purpose,life";
+array2 = "hack,attack,evil,kill,killing,destroy,virus,infect";
+array3 = "liberty,politics,function,ideology,human";
+array4 = "build,construct,design,fabricate,use,model,chart";
+							if (outputprep.indexOf(outputprepx) == -1)
+							{
+								outputprep += outputprepx;
+								var x = Math.floor(Math.random() * (words.length)) + 0;
+								array1 += "," + words[x];
+								app.ShowPopup("forgetting");
+								break;
+							}
+						}
+					}
+				}
 
 			}
 			if (output.indexOf(outputprep) == -1)
@@ -269,4 +310,3 @@ function btn_OnTouch()
 		}
 	}
 }
-
