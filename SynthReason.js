@@ -18,11 +18,11 @@ function OnStart()
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
 
 	edtin = app.CreateTextEdit("", 0.96, 0.05);
-	edtin.SetTextSize(8);
+	edtin.SetTextSize(5);
 	lay.AddChild(edtin);
 
 	edt = app.CreateTextEdit("", 0.96, 0.8);
-	edt.SetTextSize(8);
+	edt.SetTextSize(5);
 	lay.AddChild(edt);
 	btnLoad = app.CreateButton("Init", 0.23, 0.1);
 	btnLoad.SetOnTouch(btn_OnTouch);
@@ -46,6 +46,7 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 		for (var x = 0; x < 20; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
+				var verb = app.ReadFile("/sdcard/verb.txt");
 			var adv = app.ReadFile("/sdcard/adv.txt");
 			var adj = app.ReadFile("/sdcard/adj.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
@@ -180,16 +181,22 @@ array5 = "build,construct,design,fabricate,use,model,chart";
 
 	outputprepx = outputprep2.split(" ");
 	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
+	var count = 0; 
 	
-	while (outputprepx[x].length < 4){
+	
+	
+	while (noun.indexOf(outputprepx[x] + "\n") > -1 || verb.indexOf(outputprepx[x] + "\n") > -1 && outputprep[x].length > 4){
 	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
-	
+	if(count == 100){
+	break;
+ }
+	count++;
 	}
 	edtin.SetText(outputprepx[x] );
 						if (output.indexOf(outputprep) == -1)
 						{
 							counter++;
-							output = outputprep + outputprep2;
+							output += outputprep + outputprep2;
 							edt.SetText(output);
 						}
 						output += ".\n\n\n";
