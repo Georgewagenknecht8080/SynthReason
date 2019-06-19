@@ -80,7 +80,7 @@ bootloader = app.ReadFile("/sdcard/artificialintelligence.txt");
 							outputprep =
 								words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
 								words[b - 1] + " " + words[b] + " " + words[b + 1] + " " +
-								words[b + 2] + " " + words[b + 3] + ", ";
+								words[b + 2] + " " + words[b + 3] + " ";
 						}
 
 						var array1 = outputprep;
