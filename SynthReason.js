@@ -33,7 +33,7 @@ function OnStart()
 function btn_OnTouch()
 {
 var bootloader = app.ReadFile("/sdcard/philosophy.txt");
-bootloader = app.ReadFile("/sdcard/artificialintelligence.txt");
+bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
