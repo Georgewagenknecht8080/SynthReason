@@ -99,13 +99,14 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
-									&& wordsa[bb].length > 3 && wordsa[bb + 1].length > 3)
+									&& dic.indexOf(wordsa[bb + 2]) > -1
+									&& wordsa[bb].length > 4 && wordsa[bb + 1].length > 4)
 
 								{
 									outputprep2 =
 										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
 																							 1] +
-										" " + wordsa[bb] + " " + wordsa[bb + 1] + " ";
+										" " + wordsa[bb] + " " + wordsa[bb + 1] + " "+ wordsa[bb + 2];
 									break;
 								}
 							}
