@@ -20,7 +20,6 @@ function OnStart()
 	edtin = app.CreateTextEdit("", 0.96, 0.05);
 	edtin.SetTextSize(5);
 	lay.AddChild(edtin);
-
 	edt = app.CreateTextEdit("", 0.96, 0.8);
 	edt.SetTextSize(5);
 	lay.AddChild(edt);
@@ -32,23 +31,20 @@ function OnStart()
 
 function btn_OnTouch()
 {
-var bootloader = app.ReadFile("/sdcard/philosophy.txt");
-bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
+	var bootloader = app.ReadFile("/sdcard/philosophy.txt");
+	bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
 	while (0 == 0)
 	{
 		var txt = bootloader;
-
 		var sentence = txt.split(".");
 		var fmax = 3;
 		for (var x = 0; x < 20; x++)
 		{
 			var noun = app.ReadFile("/sdcard/noun.txt");
-				var verb = app.ReadFile("/sdcard/verb.txt");
-			var adv = app.ReadFile("/sdcard/adv.txt");
-			var adj = app.ReadFile("/sdcard/adj.txt");
+			var verb = app.ReadFile("/sdcard/verb.txt");
 			var dic = app.ReadFile("/sdcard/words.txt");
 			var counter = 0;
 			while (counter < fmax)
@@ -77,12 +73,8 @@ bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 							|| edtin.GetText().indexOf(words[b + 2] > -1)
 							|| edtin.GetText().indexOf(words[b + 3] > -1))
 						{
-							outputprep =
-								words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " +
-								words[b - 1] + " " + words[b] + " " + words[b + 1] + " " +
-								words[b + 2] + " " + words[b + 3] + " ";
+							outputprep = words[b - 4] + " " + words[b - 3] + " " + words[b - 2] + " " + words[b - 1] + " " + words[b] + " " + words[b + 1] + " " + words[b + 2] + " " + words[b + 3] + " ";
 						}
-
 						var array1 = outputprep;
 						var array = array1.split(" ");
 						while (0 == 0)
@@ -95,8 +87,8 @@ bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 								&& wordsa[bb - 1] !== undefined & wordsa[bb] !== undefined
 								&& wordsa[bb + 1] !== undefined && wordsa[bb + 2] !== undefined)
 							{
-								if ( wordsa[bb-3].length > 4 
-								  && dic.indexOf(wordsa[bb - 3]) > -1
+								if (wordsa[bb - 3].length > 4
+									&& dic.indexOf(wordsa[bb - 3]) > -1
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
@@ -104,27 +96,11 @@ bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 									&& wordsa[bb].length > 4 && wordsa[bb + 1].length > 4)
 
 								{
-									outputprep2 =
-										wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb -
-																							 1] +
-										" " + wordsa[bb] + " " + wordsa[bb + 1] + " "+ wordsa[bb + 2];
+									outputprep2 = wordsa[bb - 3] + " " + wordsa[bb - 2] + " " + wordsa[bb - 1] + " " + wordsa[bb] + " " + wordsa[bb + 1] + " " + wordsa[bb + 2];
 									break;
 								}
 							}
 						}
-
-	outputprepx = outputprep2.split(" ");
-	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
-	var count = 0; 
-	while (noun.indexOf(outputprepx[x] + "\n") == -1 || verb.indexOf(outputprepx[x] + "\n") == -1 && outputprep[x].length > 4){
-	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
-	if(count == 100){
-	break;
- }
-	count++;
-	}
-	
-	edtin.SetText(outputprepx[x] );
 						if (output.indexOf(outputprep) == -1)
 						{
 							counter++;
@@ -134,12 +110,6 @@ bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
 						output += ".\n\n\n";
 						app.WriteFile("/sdcard/outputlog.txt", output);
 						edt.SetText(output);
-						var now = new Date().getTime();
-						var newtime = new Date().getTime() + 2000;
-						while (now < newtime)
-						{
-							now = new Date().getTime();
-						}
 					}
 				}
 			}
