@@ -33,7 +33,7 @@ function OnStart()
 function btn_OnTouch()
 {
 var bootloader = app.ReadFile("/sdcard/philosophy.txt");
-
+bootloader = app.ReadFile("/sdcard/artificialintelligence.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
@@ -111,88 +111,18 @@ var bootloader = app.ReadFile("/sdcard/philosophy.txt");
 								}
 							}
 						}
-						var array1 = "impair,damage,illness";
-						var array = array1.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt += app.ReadFile("/sdcard/cybernetics.txt");
-								txt += app.ReadFile("/sdcard/artificialintelligence.txt");
-								app.ShowPopup("cybnetics & intelligence");
-								sentencea = txt.split(".");
-								break;
-							}
-						}
-
-						
-						
-						array2 = "thought,reason,logic,idea,purpose,life";
-											var array = array2.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt += app.ReadFile("/sdcard/philosphy.txt");
-								app.ShowPopup("philosophy");
-								sentencea = txt.split(".");
-								break;
-							}
-						}
-						
-array3 = "hack,attack,evil,kill,killing,destroy,virus,infect";
-					var array = array3.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt += app.ReadFile("/sdcard/security.txt");
-								app.ShowPopup("security");
-								sentencea = txt.split(".");
-								break;
-							}
-						}
-
-array4 = "liberty,politics,function,ideology,human";
-					var array = array4.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt += app.ReadFile("/sdcard/politics.txt");
-								app.ShowPopup("politics");
-								sentencea = txt.split(".");
-								break;
-							}
-						}
-
-
-array5 = "build,construct,design,fabricate,use,model,chart";
-					var array = array5.split(",");
-						for (var traverse = 0; traverse < array.length; traverse++)
-						{
-							if (outputprep.indexOf(array[traverse]) > -1)
-							{
-								txt += app.ReadFile("/sdcard/technology.txt");
-								app.ShowPopup("tech");
-								sentencea = txt.split(".");
-								break;
-							}
-						}
 
 	outputprepx = outputprep2.split(" ");
 	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
 	var count = 0; 
-	
-	
-	
-	while (noun.indexOf(outputprepx[x] + "\n") > -1 || verb.indexOf(outputprepx[x] + "\n") > -1 && outputprep[x].length > 4){
+	while (noun.indexOf(outputprepx[x] + "\n") == -1 || verb.indexOf(outputprepx[x] + "\n") == -1 && outputprep[x].length > 4){
 	var x  = Math.floor(Math.random() * (outputprepx.length)) + 0;
 	if(count == 100){
 	break;
  }
 	count++;
 	}
+	
 	edtin.SetText(outputprepx[x] );
 						if (output.indexOf(outputprep) == -1)
 						{
