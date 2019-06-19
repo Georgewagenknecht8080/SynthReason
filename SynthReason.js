@@ -95,7 +95,8 @@ bootloader = app.ReadFile("/sdcard/artificialintelligence.txt");
 								&& wordsa[bb - 1] !== undefined & wordsa[bb] !== undefined
 								&& wordsa[bb + 1] !== undefined && wordsa[bb + 2] !== undefined)
 							{
-								if (dic.indexOf(wordsa[bb - 3]) > -1
+								if ( wordsa[bb-3].length > 4 
+								  && dic.indexOf(wordsa[bb - 3]) > -1
 									&& dic.indexOf(wordsa[bb - 2]) > -1
 									&& dic.indexOf(wordsa[bb - 1]) > -1
 									&& dic.indexOf(wordsa[bb]) > -1
