@@ -2,9 +2,6 @@ var output = "";
 function OnStart()
 {
 	lay = app.CreateLayout("linear", "VCenter,FillXY");
-	edtin = app.CreateTextEdit("", 0.96, 0.05);
-	edtin.SetTextSize(5);
-	lay.AddChild(edtin);
 	edt = app.CreateTextEdit("", 0.96, 0.8);
 	edt.SetTextSize(5);
 	lay.AddChild(edt);
@@ -15,13 +12,11 @@ function OnStart()
 }
 function btn_OnTouch()
 {
-	var bootloader = app.ReadFile("/sdcard/philosophy.txt");
-	bootloader += app.ReadFile("/sdcard/artificialintelligence.txt");
-	bootloader += app.ReadFile("/sdcard/cybernetics.txt");
+	var bootloader = app.ReadFile("/sdcard/artificialintelligence.txt");
 	var sentencea = bootloader.split(".");
 	var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 	var sentencestra = sentencea[aa];
-	while (0 == 0)
+	for (var count = 0; count < 25;count++ )
 	{
 		var dic = app.ReadFile("/sdcard/words.txt");
 		var words = sentencestra.split(" ");
@@ -30,7 +25,8 @@ function btn_OnTouch()
 		var y = Math.floor(Math.random() * (words2.length)) + 0;
 		if (dic.indexOf(words[x] + "\n") > -1 && dic.indexOf(words2[y + 1] + "\n") > -1)
 		{
-			while (words[x] != words2[y])
+		var count2 = 0;
+			for (var count2  = 0; words[x] != words2[y] && count2 != 100;count2++)
 			{
 				var aa = Math.floor(Math.random() * (sentencea.length)) + 0;
 				var sentencestra = sentencea[aa];
@@ -39,13 +35,14 @@ function btn_OnTouch()
 			}
 			if (words[x] !== undefined && words2[y + 1] !== undefined)
 			{
-				var doublecheck = output.split(" ");
 				if (output.indexOf(words[x]) == -1 && output.indexOf(words2[y + 1]) == -1)
 				{
 					output += words[x] + " " + words2[y + 1] + " ";
-					app.ShowPopup(output);
+					edt.SetText( output );
+			
 				}
 			}
 		}
 	}
+	app.ShowPopup( "Done" );
 }
